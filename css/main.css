@@ -1,3 +1,98 @@
+#myImg {
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+#myImage {
+  height: 405px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#myImg:hover {
+  opacity: 0.7;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.image {
+  margin: auto;
+  display: block;
+  width: 100%; /* Updated width to fill the screen */
+  max-width: 700px;
+}
+
+#caption {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+  height: 25px;
+}
+
+.modal-content {
+  max-width: 100%;
+}
+
+.modal-content,
+#caption {
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 700px) {
+  .modal-content {
+    width: 100%;
+  }
+}
+
+
+/* ----------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------
+------------------------------------------------------------------------------------- */
+
 .digital-hero { 
   background: 
     linear-gradient(
@@ -16,9 +111,13 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
-    width: 100%;
     margin: 0px;
     padding: 15rem;
+    text-align: center; /* Center-align text */
+}
+  
+.digital-hero p {
+  margin: 0; /* Remove default margin for <p> */
 }
 
 .site-wrapper{
@@ -103,6 +202,65 @@ body {
   margin-left: auto; /* Push last child to the right */
 }
 
+/* Your existing CSS styles */
+
+/* Media query for screens under 480px */
+@media only screen and (max-width: 480px) {
+  .section-container {
+    grid-template-columns: repeat(1, 1fr); /* Change to one column */
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .section {
+    text-align: center; /* Center text for better readability on small screens */
+    padding: 20px;
+  }
+
+  .section img {
+    max-width: 100%; /* Ensure images occupy full width on small screens */
+    height: auto; /* Maintain aspect ratio */
+  }
+
+  .box {
+    max-width: 100%; /* Ensure .box fills the screen width */
+  }
+
+  .modal {
+    background-color: rgba(0, 0, 0, 0.9);
+  }
+
+  .modal-content {
+    max-width: 100%; /* Ensure modal content fills the screen width */
+    background-color: transparent; /* Set modal content background to transparent */
+  }
+
+  .container.container2, .container.container1, .container.container3{
+    max-width: 100%; /* Ensure container fills the screen width */
+    margin: 0 auto; /* Center container horizontally */
+    padding: 0 0px; /* Add padding to the sides */
+    padding-top: 20px;
+    padding-bottom: 20px;
+    height:400px;
+  }
+
+  .container.container2 .text-overlay, .container.container1 .text-overlay, .container.container3 .text-overlay {
+    padding: 20px; /* Adjust padding for better readability */
+  }
+
+  .container.container2, .container.container1, .container.container3 h1,
+  .container.container2, .container.container1, .container.container3 p {
+    text-align: center; /* Center text on small screens */
+  }
+
+  .digital-hero {
+    padding: 8rem 1rem; /* Adjust padding for better display on mobile screens */
+    min-height: auto; /* Remove minimum height */
+    height: 200px;
+  }
+}
+
+
 
 
 .section-info {
@@ -137,6 +295,7 @@ body {
   align-items: center;
   color: rgb(0, 0, 0); /* Text color */
   padding: 150px;
+  margin: -20px auto;
 }
 
 .container.container1 .text-overlay {
@@ -150,3 +309,16 @@ body {
 .container.container3 .text-overlay {
   background-image: url('../img/Good_Food_Display_-_NCI_Visuals_Online.jpg');
 }
+
+.wrapper {
+  background-color: lightgray; /* Set background color for the wrapper */
+  padding: 1px; /* Set padding for all sides of the wrapper */
+}
+
+.footer {
+  background-color: black; /* Set background color for the footer */
+  color: white; /* Set text color for the footer */
+  padding: 20px; /* Add padding to the footer */
+}
+
+/* Add any additional styles as needed */
