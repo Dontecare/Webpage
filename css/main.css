@@ -1,0 +1,152 @@
+.digital-hero { 
+  background: 
+    linear-gradient(
+      rgba(0, 0, 0, 0.55), 
+      rgba(0, 0, 0, 0.55)
+    ),
+    /* bottom, image */
+    url(../img/Good_Food_Display_-_NCI_Visuals_Online.jpg);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ab7626;
+    text-shadow: 1px 1px 1px #000;
+    min-height: 50vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    width: 100%;
+    margin: 0px;
+    padding: 15rem;
+}
+
+.site-wrapper{
+  margin: 24px;
+  border: 1px solid rgb(255, 255, 255);
+  overflow: hidden;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Add box shadow */
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  background-image: linear-gradient(to right, #ffffff, #ffffff, #ffffff);
+  color: #4b0000e3;
+  text-shadow: 2px 2px 4px #000000;
+  margin: 0;
+  height: 100%;
+  font-family: "Quasimoda", "ivyora-text", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 20px;
+  letter-spacing: -0.01em;
+  line-height: 1.5em;
+}
+
+.site-header-wrapper {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 80px 8.474576271%; 
+  background:white; /* Apply a gradient background */
+}
+
+.box {
+  display: flex;
+  justify-content: center; /* Center the container horizontally */
+  align-items: center; /* Center the container vertically */
+  padding:
+
+}
+
+.section-container {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr)); /* Three columns with equal width */
+  gap: 10px; /* Reduce the gap between grid items */
+  justify-content: center; /* Center the grid horizontally */
+  padding-right: 20rem;
+  padding-left: 20rem;
+  background:white; /* Apply a gradient background */
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start; /* Align items to the left */
+  padding: 20px;
+}
+
+.section img {
+  width: 100%; /* Make all images the same width */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.section h2 {
+  margin-top: 10px;
+  margin-bottom: 5px; /* Adjust space between heading and paragraph */
+  text-align: left; /* Align heading to the left */
+}
+
+.section p {
+  margin: 0; /* Reset margin to remove default spacing */
+  text-align: left; /* Align heading to the left */
+}
+
+/* Additional CSS to adjust spacing between sections */
+.section-container > :first-child {
+  margin-right: auto; /* Push first child to the left */
+}
+
+.section-container > :last-child {
+  margin-left: auto; /* Push last child to the right */
+}
+
+
+
+.section-info {
+  margin: 0 auto;
+  width: 49.01129944%;
+   
+}
+
+.section-main {
+  margin: 0 auto; /* Center the element horizontally */
+  color: #ab7626;
+  text-align: center; /* Center the text within the element */
+  width: 100%; /* Set width to 100% to ensure it occupies the full width of its container */
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  height: auto; /* Or set a specific height */
+  margin-bottom: 20px; /* Add space between containers */
+}
+
+.container .text-overlay {
+  top: 0;
+  left: 0;
+  height: 100%; /* Adjust the height as needed */
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: rgb(0, 0, 0); /* Text color */
+  padding: 150px;
+}
+
+.container.container1 .text-overlay {
+  background-image: url('../img/Screen-Shot-2022-01-21-at-7.13.39-AM-1024x683.png');
+}
+
+.container.container2 .text-overlay {
+  background-image: url('../img/pexels-chanwalrus-958545.jpg');
+}
+
+.container.container3 .text-overlay {
+  background-image: url('../img/Good_Food_Display_-_NCI_Visuals_Online.jpg');
+}
