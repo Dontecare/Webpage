@@ -1,3 +1,100 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.navbar-wrapper {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+  z-index: 1000;
+  box-sizing: border-box;
+}
+
+#navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.navbar-wrapper.scrolled {
+  background-color: black;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+}
+
+.nav-left .logo {
+  height: 40px;
+  margin-right: 10px;
+}
+
+.nav-left .business-name {
+  font-size: 24px;
+  color: white;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: nowrap;
+}
+
+.nav-right a {
+  color: white;
+  text-decoration: none;
+}
+
+.nav-mobile {
+  display: none;
+  color: white;
+}
+
+.menu-icon {
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.mobile-menu {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 100%; /* Position the dropdown below the business name and logo */
+  left: 0;
+  width: 100%; /* Make sure the dropdown spans the entire width */
+  background-color: black;
+  text-align: center; /* Center-align the dropdown items */
+}
+
+
+.mobile-menu a {
+  padding: 10px 20px;
+  color: white;
+  text-decoration: none;
+  background-color: black;
+}
+
+@media only screen and (max-width: 768px) {
+  .nav-right {
+    display: none;
+  }
+  .nav-mobile {
+    display: flex;
+  }
+}
+
+
+/* ----------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------
+------------------------------------------------------------------------------------- */
 #myImg {
   border-radius: 5px;
   cursor: pointer;
@@ -435,3 +532,4 @@ body {
     height: 200px;
   }
 }
+
