@@ -175,7 +175,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const mobileMenu = document.getElementById('mobile-menu');
   const menuIcon = document.querySelector('.menu-icon');
   const closeIcon = document.querySelector('.mobile-menu .menu-icon'); // Close icon within the mobile menu
-  let lastScrollTop = 0;
+  const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
 
   // Handle scroll event for changing navbar background and hiding/showing menu
   window.addEventListener('scroll', function () {
@@ -196,19 +196,40 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   // Add event listener to the menu icon
-  menuIcon.addEventListener('click', toggleMenu);
+  menuIcon.addEventListener('click', function () {
+      toggleMenu();
+      if (mobileMenu.classList.contains('menu-visible')) {
+          animateMobileNavLinks();
+      }
+  });
 
   // Add event listener to the close icon
-  closeIcon.addEventListener('click', toggleMenu);
+  closeIcon.addEventListener('click', function () {
+      toggleMenu();
+  });
 
   // Function to toggle the menu visibility
   function toggleMenu() {
-      const menuVisible = mobileMenu.classList.contains('menu-visible');
-      navbar.classList.toggle('navbar-hidden', !menuVisible);
-      mobileMenu.classList.toggle('menu-visible', !menuVisible);
-      menuIcon.classList.toggle('open', !menuVisible);
+      if (mobileMenu.classList.contains('menu-visible')) {
+          navbar.classList.remove('navbar-hidden');
+          mobileMenu.classList.remove('menu-visible');
+          menuIcon.classList.remove('open');
+      } else {
+          navbar.classList.add('navbar-hidden');
+          mobileMenu.classList.add('menu-visible');
+          menuIcon.classList.add('open');
+      }
+  }
+
+  // Function to animate mobile nav links
+  function animateMobileNavLinks() {
+      mobileNavLinks.forEach((link, index) => {
+          link.style.animationDelay = `${0.1 * index}s`; // Set animation delay for each link
+          link.classList.toggle('slide-in'); // Add class to trigger animation
+      });
   }
 });
+
 
 document.addEventListener('DOMContentLoaded', function () {
   const navbarWrapper = document.querySelector('.navbar-wrapper');
@@ -249,6 +270,7 @@ document.addEventListener('DOMContentLoaded', function () {
       lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
   }
 });
+
 
 
 

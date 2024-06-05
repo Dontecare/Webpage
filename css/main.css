@@ -70,6 +70,15 @@ body {
   color: white;
 }
 
+@keyframes fadeIn {
+  from {
+      opacity: 0; /* Start with opacity 0 */
+  }
+  to {
+      opacity: 1; /* Fade in to opacity 1 */
+  }
+}
+
 .mobile-menu {
   display: none;
   flex-direction: column;
@@ -83,10 +92,14 @@ body {
   text-align: left;
   padding: 20px;
   box-sizing: border-box;
-  transition: opacity 0.5s ease;
-  z-index: 1001;
+  animation: fadeIn .5s ease; /* Apply fade-in animation with a duration of 3 seconds */
+  z-index: 1002; /* Ensure mobile menu is above the navbar wrapper */
   justify-content: center;
+  opacity: 0; /* Initially hide the mobile menu */
 }
+
+
+
 
 .mobile-menu .menu-icon {
   position: absolute;
@@ -106,6 +119,25 @@ body {
   text-decoration: underline;
 }
 
+/* Define CSS animation for sliding in */
+@keyframes slideIn {
+  from {
+      transform: translateX(-100%);
+      opacity: 0;
+  }
+  to {
+      transform: translateX(0);
+      opacity: 1;
+  }
+}
+
+/* Apply animation to mobile nav links */
+.mobile-nav-link {
+  animation: slideIn 0.5s forwards; /* Animation duration and fill mode */
+  animation-delay: 0.2s; /* Delay for each link */
+  opacity: 0; /* Start with opacity 0 */
+}
+
 @media only screen and (max-width: 768px) {
   .nav-right {
       display: none;
@@ -117,8 +149,12 @@ body {
 
 .navbar-hidden {
   opacity: 0;
-  pointer-events: none;
 }
+
+.navbar-wrapper-hidden {
+  opacity: 0;
+}
+
 
 .menu-visible {
   display: flex;
