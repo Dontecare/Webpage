@@ -11,7 +11,7 @@ body {
   transition: background-color 0.3s ease, transform 1s ease; /* Include transform in the transition */
   z-index: 1000;
   box-sizing: border-box;
-  background-color: black; /* Add black background color */
+  background-color: #1c1c1c; /* Add black background color */
 }
 
 @keyframes slideInNavbar {
@@ -31,6 +31,7 @@ body {
   width: 100%;
   box-sizing: border-box;
   transition: opacity 0.5s ease;
+  background-color: #1c1c1c;
 }
 
 @media only screen and (max-width: 480px) {
@@ -43,24 +44,6 @@ body {
     box-sizing: border-box;
     transition: opacity 0.5s ease;
   }
-}
-
-.mobile-menu {
-  display: none;
-  flex-direction: column;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: black;
-  color: white;
-  text-align: left;
-  padding: 20px;
-  box-sizing: border-box;
-  z-index: 1002;
-  justify-content: center;
-  opacity: 0;
 }
 
 .navbar-wrapper.hidden {
@@ -126,7 +109,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: black;
+  background-color: #1c1c1c;
   color: white;
   text-align: left;
   padding: 20px;
@@ -424,56 +407,55 @@ body {
 
 .box {
   display: flex;
-  justify-content: center; /* Center the container horizontally */
-  align-items: center; /* Center the container vertically */
-  padding:
-
+  justify-content: center;
+  align-items: center;
+  padding: 2rem; /* Add some padding around the box */
+  background-color: white; /* Ensure background color is white */
 }
 
 .section-container {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr)); /* Three columns with equal width */
-  gap: 10px; /* Reduce the gap between grid items */
-  justify-content: center; /* Center the grid horizontally */
-  padding-right: 15rem;
-  padding-left: 15rem;
-  background:white; /* Apply a gradient background */
+  grid-template-columns: repeat(3, 1fr); /* Three equal columns */
+  gap: 20px; /* Space between items */
+  padding: 1rem; /* Padding inside the container */
+  width: 100%;
+  max-width: 1200px; /* Limit max width for large screens */
+  box-sizing: border-box; /* Include padding in the element's total width and height */
 }
 
 .section {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   align-items: flex-start; /* Align items to the left */
-  padding: 20px;
-  padding-top: 75px;
-  padding-bottom: 75px;
+  background-color: #f9f9f9; /* Light background color for sections */
+  padding: 20px; /* Padding inside each section */
+  border: 1px solid #ddd; /* Border for each section */
+  border-radius: 5px; /* Rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow for better visibility */
 }
 
 .section img {
-  width: 100%; /* Make all images the same width */
+  width: 100%; /* Full width */
   height: auto; /* Maintain aspect ratio */
+  border-radius: 5px; /* Rounded corners */
+  margin-bottom: 10px; /* Space between image and heading */
 }
 
 .section h2 {
-  margin-top: 10px;
-  margin-bottom: 5px; /* Adjust space between heading and paragraph */
+  margin: 10px 0 5px 0; /* Margin around heading */
   text-align: left; /* Align heading to the left */
 }
 
 .section p {
-  margin: 0; /* Reset margin to remove default spacing */
-  text-align: left; /* Align heading to the left */
+  margin: 0; /* Remove default margin */
+  text-align: left; /* Align text to the left */
 }
 
-/* Additional CSS to adjust spacing between sections */
-.section-container > :first-child {
-  margin-right: auto; /* Push first child to the left */
+/* Ensure the sections don't touch the edges of the container */
+.section-container > .section {
+  margin: 0 10px; /* Margin between sections */
 }
 
-.section-container > :last-child {
-  margin-left: auto; /* Push last child to the right */
-}
 
 .section-info {
   margin: 0 auto;
@@ -493,13 +475,13 @@ body {
   .slide-in-left {
     opacity: 0;
     transform: translateX(-50%);
-    transition: all .7s ease-out;
+    transition: all .5s ease-out;
   }
 
   .slide-in-right {
     opacity: 0;
     transform: translateX(50%);
-    transition: all .7s ease-out;
+    transition: all .5s ease-out;
   }
 
   .slide-in-left.visible {
@@ -514,12 +496,55 @@ body {
 
   .fade {
     opacity: 0;
-    transition: opacity .7s ease-out;
+    transition: opacity .5s ease-out;
   }
 
   .fade.visible {
     opacity: 1;
   }
+
+  .fading {
+    opacity: 0;
+    transition: opacity 1.5s ease-out;
+  }
+
+  .fading.visible {
+    opacity: 1;
+  }
+
+
+  .image-container {
+    position: relative;
+  }
+  
+  .white-shape {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; /* Start with the white shape covering the image */
+    background-color: white;
+    z-index: 1; /* Ensure the white shape is above the image */
+    animation: revealImage .5s forwards; /* Animation to reveal the image */
+    animation-play-state: paused; /* Initially, pause the animation */
+  }
+  
+  @keyframes revealImage {
+    0% {
+      height: 100%; /* Start with the white shape covering the entire image */
+      top: 0; /* Start the white shape at the top */
+    }
+    100% {
+      height: 0; /* Reduce the height to 0 to reveal the image */
+      top: 100%; /* Move the white shape down to reveal the image */
+    }
+  }
+  
+  
+  
+  
+  
+  
 }
 
 /* Ensure the fade-in effect for larger screens is still applied */
@@ -576,11 +601,44 @@ body {
 }
 
 .footer {
-  background-color: black; /* Set background color for the footer */
+  background-color: #1c1c1c; /* Set background color for the footer */
   color: white; /* Set text color for the footer */
+  width: 100%; /* Ensure the footer spans the full width */
+  display: flex; /* Use flexbox to align the grids */
+  justify-content: space-between; /* Space between the two grids */
   padding: 20px; /* Add padding to the footer */
-  height: 100px;
+  box-sizing: border-box; /* Include padding and border in element's total width and height */
 }
+
+.footer-grid {
+  display: grid; /* Use CSS grid layout */
+  grid-template-columns: repeat(2, 1fr); /* 4 equal columns */
+  gap: 20px; /* Space between columns */
+  width: 50%; /* Each grid takes up half the footer width */
+}
+
+.footer-grid-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer p {
+  margin: 0; /* Remove default margin for paragraphs */
+}
+
+/* Responsive styles for smaller screens */
+@media only screen and (max-width: 768px) {
+  .footer {
+    flex-direction: column; /* Stack the grids vertically */
+    align-items: center; /* Center align the grids */
+  }
+
+  .footer-grid {
+    width: 100%; /* Make each grid take the full width */
+    margin-bottom: 20px; /* Add space between the grids */
+  }
+}
+
 
 /* ------------------------------------------------------------------------
 ---------------------------------------------------------------------
@@ -592,7 +650,6 @@ body {
     padding-left: 0;
     padding-right: 0;
     padding-top: 75px;
-    padding-bottom: 75px;
   }
 
   .section {

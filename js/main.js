@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function () {
 // -----------------------------------------------------------------------------
 
 document.addEventListener('DOMContentLoaded', function () {
-  const elements = document.querySelectorAll('.slide-in-left, .slide-in-right, .fade-in, .fade');
+  const elements = document.querySelectorAll('.slide-in-left, .slide-in-right, .fade-in, .fade, .fading');
   
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
@@ -83,6 +83,29 @@ document.addEventListener('DOMContentLoaded', function () {
     observer.observe(element);
   });
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const whiteShape = entry.target.querySelector('.white-shape');
+        whiteShape.style.animationPlayState = 'running'; // Start the reveal animation
+        observer.unobserve(entry.target); // Stop observing once the animation is triggered
+      }
+    });
+  }, {
+    threshold: 0.5
+  });
+
+  const elements = document.querySelectorAll('.section');
+  elements.forEach(element => {
+    observer.observe(element);
+  });
+});
+
+
+
+
 
 
 
