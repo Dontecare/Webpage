@@ -281,6 +281,54 @@ body {
   width: 100%; /* Set width to 100% to ensure it occupies the full width of its container */
 }
 
+/* CSS for sliding effects on mobile screens (480px or lower) */
+@media only screen and (max-width: 480px) {
+  .slide-in-left {
+    opacity: 0;
+    transform: translateX(-50%);
+    transition: all .7s ease-out;
+  }
+
+  .slide-in-right {
+    opacity: 0;
+    transform: translateX(50%);
+    transition: all .7s ease-out;
+  }
+
+  .slide-in-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .slide-in-right.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .fade {
+    opacity: 0;
+    transition: opacity .7s ease-out;
+  }
+
+  .fade.visible {
+    opacity: 1;
+  }
+}
+
+/* Ensure the fade-in effect for larger screens is still applied */
+@media only screen and (min-width: 481px) {
+  .fade-in {
+    opacity: 0;
+    transition: opacity 1s ease-out;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+  }
+}
+
+
+
 .container {
   position: relative;
   width: 100%;
