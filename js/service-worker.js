@@ -15,4 +15,3 @@ self.addEventListener('install', event => {
       })
     );
   });
-  
