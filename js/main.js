@@ -171,20 +171,88 @@ document.addEventListener('DOMContentLoaded', function () {
 
 document.addEventListener('DOMContentLoaded', function () {
   const navbarWrapper = document.querySelector('.navbar-wrapper');
+  const navbar = document.getElementById('navbar');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const menuIcon = document.querySelector('.menu-icon');
+  const closeIcon = document.querySelector('.mobile-menu .menu-icon'); // Close icon within the mobile menu
+  let lastScrollTop = 0;
 
+  // Handle scroll event for changing navbar background and hiding/showing menu
   window.addEventListener('scroll', function () {
-    if (window.scrollY > 50) {
-      navbarWrapper.classList.add('scrolled');
-    } else {
-      navbarWrapper.classList.remove('scrolled');
-    }
+      let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+      let scrollDirection = currentScroll > lastScrollTop ? 'down' : 'up';
+
+      if (scrollDirection === 'down' && mobileMenu.classList.contains('menu-visible')) {
+          toggleMenu();
+      }
+
+      if (scrollDirection === 'up' && window.scrollY > 50) {
+          navbarWrapper.classList.add('scrolled');
+      } else {
+          navbarWrapper.classList.remove('scrolled');
+      }
+
+      lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
   });
+
+  // Add event listener to the menu icon
+  menuIcon.addEventListener('click', toggleMenu);
+
+  // Add event listener to the close icon
+  closeIcon.addEventListener('click', toggleMenu);
+
+  // Function to toggle the menu visibility
+  function toggleMenu() {
+      const menuVisible = mobileMenu.classList.contains('menu-visible');
+      navbar.classList.toggle('navbar-hidden', !menuVisible);
+      mobileMenu.classList.toggle('menu-visible', !menuVisible);
+      menuIcon.classList.toggle('open', !menuVisible);
+  }
 });
 
-function toggleMenu() {
-  const mobileMenu = document.getElementById('mobile-menu');
-  mobileMenu.style.display = mobileMenu.style.display === 'flex' ? 'none' : 'flex';
-}
+document.addEventListener('DOMContentLoaded', function () {
+  const navbarWrapper = document.querySelector('.navbar-wrapper');
+  const navbar = document.getElementById('navbar');
+  const navbarOptions = document.querySelector('.nav-right'); // Selecting navbar options
+  const navbarHeight = navbar.offsetHeight; // Get the height of the navbar
+  let lastScrollTop = 0;
+  let scrolling = false;
+
+  // Add event listener for scroll events
+  window.addEventListener('scroll', function () {
+      if (!scrolling) {
+          requestAnimationFrame(function () {
+              handleNavbarScroll();
+              scrolling = false;
+          });
+
+          scrolling = true;
+      }
+  });
+
+  // Function to handle navbar sliding on scroll
+  function handleNavbarScroll() {
+      let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+      let scrollDirection = currentScroll > lastScrollTop ? 'down' : 'up';
+
+      // Slide the navbar based on scroll direction and position
+      if (scrollDirection === 'down' && currentScroll > navbarHeight * 2) {
+          navbar.style.transform = 'translateY(-100%)';
+          navbarOptions.style.opacity = '0'; // Adjust opacity of navbar options
+          navbarWrapper.style.backgroundColor = 'transparent'; // Change navbar background color
+      } else {
+          navbar.style.transform = 'translateY(0)';
+          navbarOptions.style.opacity = '1'; // Adjust opacity of navbar options
+          navbarWrapper.style.backgroundColor = 'black'; // Change navbar background color
+      }
+
+      lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+  }
+});
+
+
+
+
 
 
 

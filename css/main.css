@@ -20,10 +20,14 @@ body {
   padding: 40px 20px;
   width: 100%;
   box-sizing: border-box;
+  transition: opacity 0.5s ease;
+  transition: transform 0.3s ease;
+  transform: translateY(0); /* Initially position the navbar at the top */
+  transition: transform 0.3s ease, background-color 0.3s ease; /* Add transition effect for sliding and background color */
 }
 
-.navbar-wrapper.scrolled {
-  background-color: black;
+.navbar-wrapper.hidden {
+  transform: translateY(-100%); /* Translate the navbar off the screen */
 }
 
 .nav-left {
@@ -61,34 +65,68 @@ body {
 .menu-icon {
   font-size: 24px;
   cursor: pointer;
+  background: none;
+  border: none;
+  color: white;
 }
 
 .mobile-menu {
   display: none;
   flex-direction: column;
-  position: absolute;
-  top: 100%; /* Position the dropdown below the business name and logo */
+  position: fixed;
+  top: 0;
   left: 0;
-  width: 100%; /* Make sure the dropdown spans the entire width */
+  width: 100%;
+  height: 100%;
   background-color: black;
-  text-align: center; /* Center-align the dropdown items */
+  color: white;
+  text-align: left;
+  padding: 20px;
+  box-sizing: border-box;
+  transition: opacity 0.5s ease;
+  z-index: 1001;
+  justify-content: center;
 }
 
+.mobile-menu .menu-icon {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: white;
+}
 
 .mobile-menu a {
-  padding: 10px 20px;
+  padding: 20px 0;
   color: white;
   text-decoration: none;
-  background-color: black;
+  font-size: 40px; /* Increase font size */
+}
+
+.mobile-menu a.active {
+  text-decoration: underline;
 }
 
 @media only screen and (max-width: 768px) {
   .nav-right {
-    display: none;
+      display: none;
   }
   .nav-mobile {
-    display: flex;
+      display: flex;
   }
+}
+
+.navbar-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.menu-visible {
+  display: flex;
+  opacity: 1;
+}
+
+.scrolled {
+  background-color: black;
 }
 
 

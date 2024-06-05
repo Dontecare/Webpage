@@ -25,28 +25,30 @@
 <body>
   <div class="navbar-wrapper">
     <nav id="navbar">
-      <div class="nav-left">
-        <img src="logo.png" alt="Business Logo" class="logo">
-        <span class="business-name">Business Name</span>
-      </div>
-      <div class="nav-right">
-        <a href="#home">Home</a>
-        <a href="#menu">Menu</a>
-        <a href="#reservations">Reservations</a>
-        <a href="#news">News</a>
-        <a href="#locations">Locations</a>
-      </div>
-      <div class="nav-mobile">
-        <span class="menu-icon" onclick="toggleMenu()">☰</span>
-        <div id="mobile-menu" class="mobile-menu">
-          <a href="#home">Home</a>
-          <a href="#menu">Menu</a>
-          <a href="#reservations">Reservations</a>
-          <a href="#news">News</a>
-          <a href="#locations">Locations</a>
+        <div class="nav-left">
+            <img src="logo.png" alt="Business Logo" class="logo">
+            <span class="business-name">Business Name</span>
         </div>
-      </div>
+        <div class="nav-right">
+            <a href="#home" class="nav-link">Home</a>
+            <a href="#menu" class="nav-link">Menu</a>
+            <a href="#reservations" class="nav-link">Reservations</a>
+            <a href="#news" class="nav-link">News</a>
+            <a href="#locations" class="nav-link">Locations</a>
+        </div>
+        <div class="nav-mobile">
+            <button class="menu-icon">☰</button>
+        </div>
     </nav>
+    <div id="mobile-menu" class="mobile-menu">
+        <button class="menu-icon">✖</button>
+        <a href="#home" class="mobile-nav-link">Home</a>
+        <a href="#menu" class="mobile-nav-link">Menu</a>
+        <a href="#reservations" class="mobile-nav-link">Reservations</a>
+        <a href="#news" class="mobile-nav-link">News</a>
+        <a href="#locations" class="mobile-nav-link">Locations</a>
+    </div>
+</div>
   </div>
 
   <div class="wrapper">
