@@ -241,35 +241,59 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Add event listener for scroll events
   window.addEventListener('scroll', function () {
-      if (!scrolling) {
-          requestAnimationFrame(function () {
-              handleNavbarScroll();
-              scrolling = false;
-          });
+    if (!scrolling) {
+      requestAnimationFrame(function () {
+        handleNavbarScroll();
+        scrolling = false;
+      });
 
-          scrolling = true;
-      }
+      scrolling = true;
+    }
   });
 
   // Function to handle navbar sliding on scroll
   function handleNavbarScroll() {
-      let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-      let scrollDirection = currentScroll > lastScrollTop ? 'down' : 'up';
+    let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+    let scrollDirection = currentScroll > lastScrollTop ? 'down' : 'up';
 
-      // Slide the navbar based on scroll direction and position
-      if (scrollDirection === 'down' && currentScroll > navbarHeight * 2) {
-          navbar.style.transform = 'translateY(-100%)';
-          navbarOptions.style.opacity = '0'; // Adjust opacity of navbar options
-          navbarWrapper.style.backgroundColor = 'transparent'; // Change navbar background color
+    // Slide the navbar based on scroll direction and position
+    if (scrollDirection === 'down' && currentScroll > navbarHeight * 2) {
+      navbarWrapper.classList.add('hidden');
+    } else {
+      navbarWrapper.classList.remove('hidden');
+    }
+
+    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+  }
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+  const navbarWrapper = document.querySelector('.navbar-wrapper');
+  let lastScrollTop = 0;
+
+  // Function to update the background color based on scroll position
+  function updateNavbarBackground() {
+      let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+      // Check if the scroll position is at the top
+      if (currentScroll <= 0) {
+          navbarWrapper.style.backgroundColor = 'rgba(0, 0, 0, 0)'; // Set background color to black with 0 opacity
       } else {
-          navbar.style.transform = 'translateY(0)';
-          navbarOptions.style.opacity = '1'; // Adjust opacity of navbar options
-          navbarWrapper.style.backgroundColor = 'black'; // Change navbar background color
+          navbarWrapper.style.backgroundColor = 'rgba(0, 0, 0, 1)'; // Set background color to black with full opacity
       }
 
       lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
   }
+
+  // Call the function once when the page loads
+  updateNavbarBackground();
+
+  // Add event listener for scroll events
+  window.addEventListener('scroll', function () {
+      updateNavbarBackground();
+  });
 });
+
 
 
 
