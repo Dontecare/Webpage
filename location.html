@@ -19,6 +19,8 @@
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/main.css">
 
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+
   <meta name="theme-color" content="#fafafa">
 </head>
 
@@ -50,30 +52,12 @@
         <a href="./location.html" class="mobile-nav-link">Locations</a>
       </div>
     </div>
-
+    
     <section class="header-section">
         <div class="header-image">
             <h1>Make a Reservation</h1>
             <p>Book your table at our restaurant easily.</p>
         </div>
-    </section>
-    
-    <section class="reservation-form-section">
-        <form class="reservation-form">
-            <label for="date">Date:</label>
-            <input type="date" id="date" name="date" required>
-            
-            <label for="time">Time:</label>
-            <input type="time" id="time" name="time" required>
-            
-            <label for="guests">Number of Guests:</label>
-            <input type="number" id="guests" name="guests" required min="1">
-            
-            <label for="requests">Special Requests:</label>
-            <textarea id="requests" name="requests"></textarea>
-            
-            <button type="submit">Reserve</button>
-        </form>
     </section>
     
     <section class="contact-info-section">
@@ -121,7 +105,8 @@
             </div>
         </div>
     </div>
-
+    
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <script src="js/main.js"></script>
 
 </html>

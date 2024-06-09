@@ -201,6 +201,23 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
+document.addEventListener('DOMContentLoaded', function() {
+  // Initialize the map with a specific location and zoom level
+  var map = L.map('map').setView([40.7128, -74.0060], 13); // Coordinates for New York City
+
+  // Add the OpenStreetMap tile layer
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+  }).addTo(map);
+
+  // Add a marker to the map for the specific location
+  var marker = L.marker([40.7128, -74.0060]).addTo(map); // Coordinates for New York City
+  marker.bindPopup("<b>Hello!</b><br>This is the specific location.").openPopup(); // Add a popup to the marker
+});
+
+
+
+
 
 // -----------------------------------------------------------------------------
 // -----------------------------------------------------------------------------

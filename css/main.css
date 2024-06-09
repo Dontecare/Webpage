@@ -717,7 +717,7 @@ body {
 }
 
 .header-image {
-  background: url('your-header-image.jpg') no-repeat center center/cover;
+  background: url('../img/pexels-chanwalrus-958545.jpg') no-repeat center center/cover;
   padding: 100px 20px;
 }
 
