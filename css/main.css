@@ -355,7 +355,7 @@ body {
       rgba(0, 0, 0, 0.55)
     ),
     /* bottom, image */
-    url(../img/Good_Food_Display_-_NCI_Visuals_Online.jpg);
+    url(../img/pexels-chanwalrus-958545.jpg);
 
     display: flex;
     align-items: center;
@@ -477,6 +477,20 @@ body {
   color: #000000;
   text-align: center; /* Center the text within the element */
   width: 100%; /* Set width to 100% to ensure it occupies the full width of its container */
+}
+
+/* Media query for tablets */
+@media only screen and (max-width: 1024px) {
+  .section-container {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjust grid columns for smaller screens */
+  }
+}
+
+/* Media query for smaller devices */
+@media only screen and (max-width: 768px) {
+  .section-container {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjust grid columns for smaller screens */
+  }
 }
 
 /* CSS for sliding effects on mobile screens (480px or lower) */
@@ -647,7 +661,7 @@ body {
 ---------------------------------------------------------------------
 ------------------------------------------------------------------- */
 /* Media query for screens under 480px */
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 768px) {
   .section-container {
     grid-template-columns: repeat(1, 1fr); /* Change to one column */
     padding-left: 0;
