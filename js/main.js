@@ -4,8 +4,6 @@ document.addEventListener('DOMContentLoaded', function () {
   const modalImg = document.getElementById("img01");
   const captionText = document.getElementById("caption");
   const closeButton = document.getElementsByClassName("close")[0];
-  const navbar = document.getElementById("navbar"); // Assuming navbar has an ID of "navbar"
-
   let modalOpen = false;
   let touchStartX = 0;
   let touchEndX = 0;
@@ -16,14 +14,14 @@ document.addEventListener('DOMContentLoaded', function () {
     captionText.innerHTML = altText;
     document.body.style.overflow = "hidden";
     modalOpen = true;
-    navbar.style.display = "none"; // Hide the navbar when modal is opened
+    navbarWrapper.classList.add('navbar-hidden'); // Hide navbar
   }
 
   function closeModal() {
     modal.style.display = "none";
     document.body.style.overflow = "auto";
     modalOpen = false;
-    navbar.style.display = "block"; // Restore the navbar when modal is closed
+    navbarWrapper.classList.remove('navbar-hidden'); // Show navbar
   }
 
   function clickListener(event) {
@@ -44,6 +42,11 @@ document.addEventListener('DOMContentLoaded', function () {
       event.preventDefault(); // Prevent default touch behavior
     }
   }
+  
+  function isTouchedInsideImage(target) {
+    // Check if the touched element or any of its ancestors is an image
+    return target.tagName === 'IMG' || target.closest('img');
+  }
 
   for (let i = 0; i < images.length; i++) {
     images[i].addEventListener("click", clickListener);
@@ -57,17 +60,11 @@ document.addEventListener('DOMContentLoaded', function () {
   };
 
   window.onclick = function (event) {
-    if (modalOpen && event.target === modal) {
+    if (modalOpen && event.target === modal && !isTouchedInsideImage(event.target)) {
       closeModal();
     }
   };
-
-  // Function to check if the touched element or any of its ancestors is an image
-  function isTouchedInsideImage(target) {
-    return target.tagName === 'IMG' || target.closest('img');
-  }
 });
-
 
 
 
