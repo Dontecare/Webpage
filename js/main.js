@@ -6,59 +6,58 @@ document.addEventListener('DOMContentLoaded', function () {
   const closeButton = document.getElementsByClassName("close")[0];
 
   let modalOpen = false;
+  let touchStartX = 0;
+  let touchEndX = 0;
 
   function openModal(imageSrc, altText) {
-      modal.style.display = "block";
-      modalImg.src = imageSrc;
-      captionText.innerHTML = altText;
-      document.body.style.overflow = "hidden";
-      modalOpen = true;
+    modal.style.display = "block";
+    modalImg.src = imageSrc;
+    captionText.innerHTML = altText;
+    document.body.style.overflow = "hidden";
+    modalOpen = true;
   }
 
   function closeModal() {
-      modal.style.display = "none";
-      document.body.style.overflow = "auto";
-      modalOpen = false;
+    modal.style.display = "none";
+    document.body.style.overflow = "auto";
+    modalOpen = false;
   }
 
   function clickListener(event) {
-      if (!modalOpen) {
-          openModal(this.src, this.alt);
-          event.stopPropagation(); // Prevent the event from bubbling up to window
-      }
-  }
-
-  for (let i = 0; i < images.length; i++) {
-      images[i].addEventListener("click", clickListener);
-  }
-
-  closeButton.onclick = function(event) {
-      closeModal();
+    if (!modalOpen) {
+      openModal(this.src, this.alt);
       event.stopPropagation(); // Prevent the event from bubbling up to window
-  };
-
-  window.onclick = function(event) {
-      if (modalOpen && event.target === modal) {
-          closeModal();
-      }
-  };
-
-  // Touch event listeners for closing the modal
-  window.addEventListener("touchstart", function(event) {
-      if (modalOpen && event.target === modal) {
-          closeModal();
-      }
-  });
-
-  // Touch event listeners for image click
-  for (let i = 0; i < images.length; i++) {
-      images[i].addEventListener("touchstart", function(event) {
-          if (!modalOpen) {
-              openModal(this.src, this.alt);
-              event.preventDefault(); // Prevent default touch behavior
-          }
-      });
+    }
   }
+
+  function touchStartListener(event) {
+    touchStartX = event.touches[0].clientX;
+  }
+
+  function touchEndListener(event) {
+    touchEndX = event.changedTouches[0].clientX;
+    if (Math.abs(touchStartX - touchEndX) < 10 && !modalOpen) {
+      openModal(this.src, this.alt);
+      event.preventDefault(); // Prevent default touch behavior
+    }
+  }
+
+  for (let i = 0; i < images.length; i++) {
+    images[i].addEventListener("click", clickListener);
+    images[i].addEventListener("touchstart", touchStartListener);
+    images[i].addEventListener("touchend", touchEndListener);
+  }
+
+  closeButton.onclick = function (event) {
+    closeModal();
+    event.stopPropagation(); // Prevent the event from bubbling up to window
+  };
+
+  window.onclick = function (event) {
+    if (modalOpen && event.target === modal) {
+      closeModal();
+    }
+  };
 });
 
 
@@ -124,64 +123,95 @@ document.addEventListener('DOMContentLoaded', function () {
   const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
   let lastScrollTop = 0;
   const navbarHeight = navbar.offsetHeight;
+  let isMenuOpen = false; // Variable to track menu state
 
   // Function to toggle the menu visibility
   function toggleMenu() {
-      if (mobileMenu.classList.contains('menu-visible')) {
-          navbar.classList.remove('navbar-hidden');
-          mobileMenu.classList.remove('menu-visible');
-          menuIcon.classList.remove('open');
-      } else {
-          navbar.classList.add('navbar-hidden');
-          mobileMenu.classList.add('menu-visible');
-          menuIcon.classList.add('open');
-          animateMobileNavLinks();
-      }
+    isMenuOpen = !isMenuOpen; // Toggle menu state
+    if (isMenuOpen) {
+      navbar.classList.add('navbar-hidden');
+      mobileMenu.classList.add('menu-visible');
+      menuIcon.classList.add('open');
+      animateMobileNavLinks();
+      // Prevent scrolling when menu is open
+      document.body.style.overflow = 'hidden';
+      // Add touch event listeners to prevent swiping
+      document.addEventListener('touchstart', handleTouchStart, false);
+      document.addEventListener('touchmove', handleTouchMove, false);
+    } else {
+      navbar.classList.remove('navbar-hidden');
+      mobileMenu.classList.remove('menu-visible');
+      menuIcon.classList.remove('open');
+      // Restore scrolling when menu is closed
+      document.body.style.overflow = '';
+      // Remove touch event listeners when menu is closed
+      document.removeEventListener('touchstart', handleTouchStart, false);
+      document.removeEventListener('touchmove', handleTouchMove, false);
+    }
   }
+
 
   // Function to animate mobile nav links
   function animateMobileNavLinks() {
-      mobileNavLinks.forEach((link, index) => {
-          link.style.animationDelay = `${0.1 * index}s`;
-          link.classList.toggle('slide-in');
-      });
+    mobileNavLinks.forEach((link, index) => {
+      link.style.animationDelay = `${0.1 * index}s`;
+      link.classList.toggle('slide-in');
+    });
   }
 
   // Function to update the navbar background based on scroll position
   function updateNavbarBackground(currentScroll) {
-      if (currentScroll <= 0) {
-          navbarWrapper.style.backgroundColor = 'rgba(28, 28, 28, 0)';
-          navbar.style.backgroundColor = 'rgba(28, 28, 28, 0)';
-      } else {
-          navbarWrapper.style.backgroundColor = 'rgba(28, 28, 28, 1)';
-          navbar.style.backgroundColor = 'rgba(28, 28, 28, 1)';
-      }
+    if (currentScroll <= 0) {
+      navbarWrapper.style.backgroundColor = 'rgba(28, 28, 28, 0)';
+      navbar.style.backgroundColor = 'rgba(28, 28, 28, 0)';
+    } else {
+      navbarWrapper.style.backgroundColor = 'rgba(28, 28, 28, 1)';
+      navbar.style.backgroundColor = 'rgba(28, 28, 28, 1)';
+    }
   }
 
   // Function to handle navbar scroll effects
   function handleNavbarScroll() {
-      let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-      let scrollDirection = currentScroll > lastScrollTop ? 'down' : 'up';
+    let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+    let scrollDirection = currentScroll > lastScrollTop ? 'down' : 'up';
 
-      if (scrollDirection === 'down' && mobileMenu.classList.contains('menu-visible')) {
-          toggleMenu();
-      }
+    if (scrollDirection === 'down' && mobileMenu.classList.contains('menu-visible')) {
+      toggleMenu();
+    }
 
-      if (scrollDirection === 'down' && currentScroll > navbarHeight * 2) {
-          navbarWrapper.classList.add('hidden');
-      } else {
-          navbarWrapper.classList.remove('hidden');
-      }
+    if (scrollDirection === 'down' && currentScroll > navbarHeight * 2) {
+      navbarWrapper.classList.add('hidden');
+    } else {
+      navbarWrapper.classList.remove('hidden');
+    }
 
-      updateNavbarBackground(currentScroll);
+    updateNavbarBackground(currentScroll);
 
-      if (scrollDirection === 'up' && currentScroll > 50) {
-          navbarWrapper.classList.add('scrolled');
-      } else {
-          navbarWrapper.classList.remove('scrolled');
-      }
+    if (scrollDirection === 'up' && currentScroll > 50) {
+      navbarWrapper.classList.add('scrolled');
+    } else {
+      navbarWrapper.classList.remove('scrolled');
+    }
 
-      lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+  }
+
+    // Function to handle touch start event
+  let xStart = null;
+  function handleTouchStart(event) {
+    xStart = event.touches[0].clientX;
+  }
+
+  // Function to handle touch move event
+  function handleTouchMove(event) {
+    if (!xStart) {
+      return;
+    }
+    let xEnd = event.touches[0].clientX;
+    let xDiff = xStart - xEnd;
+    if (Math.abs(xDiff) > 50) { // Adjust the threshold as needed
+      event.preventDefault(); // Prevent default swipe action
+    }
   }
 
   // Initial background update when page loads
@@ -189,16 +219,29 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Add event listeners
   window.addEventListener('scroll', function () {
-      requestAnimationFrame(handleNavbarScroll);
+    requestAnimationFrame(handleNavbarScroll);
   });
 
   menuIcon.addEventListener('click', toggleMenu);
   closeIcon.addEventListener('click', toggleMenu);
+
+  // Prevent navbar from closing when using scroll wheel
+  navbar.addEventListener('wheel', function(event) {
+    event.stopPropagation();
+  });
+
+  // Prevent navbar from closing when swiping
+  mobileMenu.addEventListener('touchmove', function(event) {
+    event.stopPropagation();
+  });
 });
 
 
 
 
+// -----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
 
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -210,28 +253,37 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Add a marker for the specific location
   L.marker([29.695161, -95.901054]).addTo(map)
-      .bindPopup('<b>8050 FM359, Fulshear, TX 77441</b>').openPopup();
+      .bindPopup("<b>Welcome!</b><br>Our One and Only Location").openPopup();
 
-  // Try to get user's location and display it on the map
-  if ('geolocation' in navigator) {
+  // Check if the location has already been requested in this session
+  var locationRequested = sessionStorage.getItem('locationRequested');
+
+  // If the location has not been requested, prompt the user for their location
+  if (!locationRequested) {
+    if ('geolocation' in navigator) {
       navigator.geolocation.getCurrentPosition(function(position) {
-          var userLat = position.coords.latitude;
-          var userLng = position.coords.longitude;
+        var userLat = position.coords.latitude;
+        var userLng = position.coords.longitude;
 
-          // Define a custom icon for the user's location marker
-          var customIcon = L.divIcon({
-              className: 'custom-icon',
-              html: '<div class="outer-circle"></div><div class="inner-circle"></div><div class="directional-arrow"></div>'
-          });
+        // Define a custom icon for the user's location marker
+        var customIcon = L.divIcon({
+          className: 'custom-icon',
+          html: '<div class="outer-circle"></div><div class="inner-circle"></div><div class="directional-arrow"></div>'
+        });
 
-          // Add a marker for the user's location
-          L.marker([userLat, userLng], { icon: customIcon }).addTo(map)
-              .bindPopup('<b>Your Location</b>').openPopup();
+        // Add a marker for the user's location
+        L.marker([userLat, userLng], { icon: customIcon }).addTo(map)
+          .bindPopup('<b>Your Location</b>').openPopup();
       });
-  } else {
+
+      // Set the flag to indicate that the location has been requested
+      sessionStorage.setItem('locationRequested', 'true');
+    } else {
       console.log('Geolocation is not supported by your browser.');
+    }
   }
 });
+
 
 
 document.getElementById('open-maps-link').addEventListener('click', function(event) {
@@ -244,11 +296,11 @@ document.getElementById('open-maps-link').addEventListener('click', function(eve
   }
   // If it's an Android device, open Google Maps
   else if (/android/i.test(userAgent)) {
-      window.location.href = 'https://www.google.com/maps/search/?api=1&query=La+Balance+Cafe+Mexicana&query_place_id=ChIJB7cmMJHHRoYR9SqAUGKXfw4';
+      window.location.href = 'https://www.google.com/maps/place/La+Balance+Cafe+Mexicana/@29.6952214,-95.9017876,19z/data=!4m6!3m5!1s0x86413d2d01655555:0x7c34a56f8e44bc9b!8m2!3d29.6952223!4d-95.9010979!16s%2Fg%2F1pp2wyd8n?entry=ttu';
   }
   // For other devices or browsers, provide a fallback link
   else {
-      window.location.href = 'https://www.google.com/maps/search/?api=1&query=La+Balance+Cafe+Mexicana&query_place_id=ChIJB7cmMJHHRoYR9SqAUGKXfw4';
+      window.location.href = 'https://www.google.com/maps/place/La+Balance+Cafe+Mexicana/@29.6952214,-95.9017876,19z/data=!4m6!3m5!1s0x86413d2d01655555:0x7c34a56f8e44bc9b!8m2!3d29.6952223!4d-95.9010979!16s%2Fg%2F1pp2wyd8n?entry=ttu';
   }
 });
 

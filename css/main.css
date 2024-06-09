@@ -292,7 +292,7 @@ body {
   font-size: 16px;
   font-weight: bold;
   color: #fff;
-  background-image: linear-gradient(to bottom, #00ff37e3, #00ff0d);
+  background-image: linear-gradient(to bottom, #ab7626, #8d5f1b);
   border: 1px solid black;
   border-radius: 5px;
   cursor: pointer;
@@ -300,6 +300,7 @@ body {
   position: relative;
   overflow: hidden;
   transition: background-color 0.3s, box-shadow 0.3s;
+  text-decoration: none; /* Remove underline */
 }
 
 .button::before {
@@ -347,7 +348,7 @@ body {
 ------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------- */
 
-.digital-hero { 
+.site-hero { 
   background: 
     linear-gradient(
       rgba(0, 0, 0, 0.55), 
@@ -359,7 +360,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #ab7626;
+    color: #000000;
     text-shadow: 1px 1px 1px #000;
     min-height: 50vh;
     background-repeat: no-repeat;
@@ -370,7 +371,7 @@ body {
     text-align: center; /* Center-align text */
 }
   
-.digital-hero p {
+.site-hero p {
   margin: 0; /* Remove default margin for <p> */
 }
 
@@ -386,8 +387,7 @@ body {
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Add box shadow */
   transition: box-shadow 0.3s ease, transform 0.3s ease;
   background-image: linear-gradient(to right, #ffffff, #ffffff, #ffffff);
-  color: #4b0000e3;
-  text-shadow: 2px 2px 4px #000000;
+  color: #000000;
   margin: 0;
   height: 100%;
   font-family: "Quasimoda", "ivyora-text", sans-serif;
@@ -474,7 +474,7 @@ body {
 
 .section-main {
   margin: 0 auto; /* Center the element horizontally */
-  color: #ab7626;
+  color: #000000;
   text-align: center; /* Center the text within the element */
   width: 100%; /* Set width to 100% to ensure it occupies the full width of its container */
 }
@@ -484,7 +484,7 @@ body {
   .slide-in-left {
     opacity: 0;
     transform: translateX(-50%);
-    transition: all .5s ease-out;
+    transition: all .3s ease-out;
   }
 
   .slide-in-right {
@@ -696,7 +696,7 @@ body {
     text-align: center; /* Center text on small screens */
   }
 
-  .digital-hero {
+  .site-hero {
     padding: 8rem 1rem; /* Adjust padding for better display on mobile screens */
     min-height: auto; /* Remove minimum height */
     height: 200px;
@@ -762,6 +762,32 @@ body {
   cursor: pointer;
 }
 
+/* Media queries for responsive design */
+@media only screen and (max-width: 768px) {
+  .reservation-form-section {
+    padding: 40px 20px; /* Further reduced padding for smaller screens */
+  }
+
+  .reservation-form {
+    max-width: 100%; /* Adjusted maximum width for smaller screens */
+  }
+
+  .reservation-form label {
+    margin: 8px 0 4px; /* Adjusted margin for smaller screens */
+  }
+
+  .reservation-form input, .reservation-form textarea {
+    padding: 8px; /* Reduced padding for smaller screens */
+    margin-bottom: 10px; /* Reduced margin bottom for smaller screens */
+  }
+
+  .reservation-form button {
+    padding: 8px; /* Reduced padding for smaller screens */
+    font-size: 14px; /* Adjusted font size for smaller screens */
+  }
+}
+
+
 .contact-info-section, .location-hours-section {
   padding: 50px 20px;
   text-align: center;
@@ -796,4 +822,47 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+/* Media queries for responsive design */
+@media only screen and (max-width: 768px) {
+  .header-image {
+    padding: 60px 20px; /* Further reduced padding for smaller screens */
+    padding-top: 100px;
+  }
+
+  .header-image h1 {
+    font-size: 2em; /* Adjusted font size for smaller screens */
+  }
+
+  .header-image p {
+    font-size: 1.1em; /* Adjusted font size for smaller screens */
+  }
+
+  .reservation-form-section, .contact-info-section, .location-hours-section {
+    padding: 30px 20px; /* Further reduced padding for smaller screens */
+  }
+
+  .map {
+    height: 200px; /* Further reduced map height for smaller screens */
+  }
+
+  .custom-icon {
+    width: 16px; /* Further reduced size for smaller screens */
+    height: 16px; /* Further reduced size for smaller screens */
+  }
+
+  .outer-circle {
+    border: 1px solid red; /* Adjusted border size for smaller screens */
+  }
+}
+
+/* Adjust z-index of map elements */
+.leaflet-container {
+  z-index: 1; /* Ensure the map is behind the navbar */
+}
+
+/* Adjust z-index of navbar dropdown menu */
+.navbar .dropdown-menu {
+  z-index: 2; /* Ensure the dropdown menu is above the map */
 }
