@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservations</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <section class="header-section">
+        <div class="header-image">
+            <h1>Make a Reservation</h1>
+            <p>Book your table at our restaurant easily.</p>
+        </div>
+    </section>
+    
+    <section class="reservation-form-section">
+        <form class="reservation-form">
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" required>
+            
+            <label for="time">Time:</label>
+            <input type="time" id="time" name="time" required>
+            
+            <label for="guests">Number of Guests:</label>
+            <input type="number" id="guests" name="guests" required min="1">
+            
+            <label for="requests">Special Requests:</label>
+            <textarea id="requests" name="requests"></textarea>
+            
+            <button type="submit">Reserve</button>
+        </form>
+    </section>
+    
+    <section class="contact-info-section">
+        <h2>Contact Us</h2>
+        <p>Phone: (123) 456-7890</p>
+        <p>Email: reservations@restaurant.com</p>
+    </section>
+    
+    <section class="location-hours-section">
+        <h2>Location & Hours</h2>
+        <div class="map">
+            <!-- Embed Google Map Here -->
+        </div>
+        <p>123 Restaurant St, Food City</p>
+        <p>Mon-Fri: 11am - 10pm</p>
+        <p>Sat-Sun: 10am - 11pm</p>
+    </section>
+</body>
+</html>

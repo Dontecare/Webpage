@@ -457,6 +457,15 @@ body {
 }
 
 
+/* Additional CSS to adjust spacing between sections */
+.section-container > :first-child {
+  margin-right: auto; /* Push first child to the left */
+}
+
+.section-container > :last-child {
+  margin-left: auto; /* Push last child to the right */
+}
+
 .section-info {
   margin: 0 auto;
   width: 49.01129944%;
@@ -538,13 +547,7 @@ body {
       height: 0; /* Reduce the height to 0 to reveal the image */
       top: 100%; /* Move the white shape down to reveal the image */
     }
-  }
-  
-  
-  
-  
-  
-  
+  } 
 }
 
 /* Ensure the fade-in effect for larger screens is still applied */
@@ -700,3 +703,72 @@ body {
   }
 }
 
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.header-section {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.header-image {
+  background: url('your-header-image.jpg') no-repeat center center/cover;
+  padding: 100px 20px;
+}
+
+.header-image h1 {
+  font-size: 3em;
+  margin: 0;
+}
+
+.header-image p {
+  font-size: 1.5em;
+}
+
+.reservation-form-section {
+  padding: 50px 20px;
+  background: #f8f8f8;
+}
+
+.reservation-form {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.reservation-form label {
+  margin: 10px 0 5px;
+}
+
+.reservation-form input, .reservation-form textarea {
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.reservation-form button {
+  padding: 10px;
+  background: #ab7626;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.contact-info-section, .location-hours-section {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.map {
+  height: 300px;
+  background: #e0e0e0;
+  margin-bottom: 20px;
+}
