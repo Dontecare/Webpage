@@ -202,17 +202,54 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 document.addEventListener('DOMContentLoaded', function() {
-  // Initialize the map with a specific location and zoom level
-  var map = L.map('map').setView([40.7128, -74.0060], 13); // Coordinates for New York City
+  var map = L.map('map').setView([29.695161, -95.901054], 13);  // Center the map on the specific location
 
-  // Add the OpenStreetMap tile layer
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
   }).addTo(map);
 
-  // Add a marker to the map for the specific location
-  var marker = L.marker([40.7128, -74.0060]).addTo(map); // Coordinates for New York City
-  marker.bindPopup("<b>Hello!</b><br>This is the specific location.").openPopup(); // Add a popup to the marker
+  // Add a marker for the specific location
+  L.marker([29.695161, -95.901054]).addTo(map)
+      .bindPopup('<b>8050 FM359, Fulshear, TX 77441</b>').openPopup();
+
+  // Try to get user's location and display it on the map
+  if ('geolocation' in navigator) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+          var userLat = position.coords.latitude;
+          var userLng = position.coords.longitude;
+
+          // Define a custom icon for the user's location marker
+          var customIcon = L.divIcon({
+              className: 'custom-icon',
+              html: '<div class="outer-circle"></div><div class="inner-circle"></div><div class="directional-arrow"></div>'
+          });
+
+          // Add a marker for the user's location
+          L.marker([userLat, userLng], { icon: customIcon }).addTo(map)
+              .bindPopup('<b>Your Location</b>').openPopup();
+      });
+  } else {
+      console.log('Geolocation is not supported by your browser.');
+  }
+});
+
+
+document.getElementById('open-maps-link').addEventListener('click', function(event) {
+  event.preventDefault();
+  var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+  // If it's an iOS device, open Apple Maps
+  if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+      window.location.href = 'https://maps.apple.com/?q=La+Balance+Cafe+Mexicana&ll=29.695161,-95.901054';
+  }
+  // If it's an Android device, open Google Maps
+  else if (/android/i.test(userAgent)) {
+      window.location.href = 'https://www.google.com/maps/search/?api=1&query=La+Balance+Cafe+Mexicana&query_place_id=ChIJB7cmMJHHRoYR9SqAUGKXfw4';
+  }
+  // For other devices or browsers, provide a fallback link
+  else {
+      window.location.href = 'https://www.google.com/maps/search/?api=1&query=La+Balance+Cafe+Mexicana&query_place_id=ChIJB7cmMJHHRoYR9SqAUGKXfw4';
+  }
 });
 
 
