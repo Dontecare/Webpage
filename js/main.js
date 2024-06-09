@@ -36,11 +36,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function touchEndListener(event) {
     touchEndX = event.changedTouches[0].clientX;
-    if (Math.abs(touchStartX - touchEndX) < 10 && !modalOpen) {
+    if (Math.abs(touchStartX - touchEndX) < 10 && !modalOpen && !isTouchedInsideImage(event.target)) {
       openModal(this.src, this.alt);
       event.preventDefault(); // Prevent default touch behavior
     }
   }
+  
+  function isTouchedInsideImage(target) {
+    // Check if the touched element or any of its ancestors is an image
+    return target.tagName === 'IMG' || target.closest('img');
+  }
+  
 
   for (let i = 0; i < images.length; i++) {
     images[i].addEventListener("click", clickListener);
@@ -97,7 +103,7 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   }, {
-    threshold: 0.5
+    threshold: 0.3
   });
 
   const elements = document.querySelectorAll('.section');
