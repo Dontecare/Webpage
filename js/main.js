@@ -5,6 +5,8 @@ document.addEventListener('DOMContentLoaded', function () {
   const captionText = document.getElementById("caption");
   const closeButton = document.getElementsByClassName("close")[0];
   let modalOpen = false;
+  let touchStartX = 0;
+  let touchEndX = 0;
 
   function openModal(imageSrc, altText) {
     modal.style.display = "block";
@@ -23,17 +25,38 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function clickListener(event) {
-    openModal(this.src, this.alt);
-    event.stopPropagation(); // Prevent the event from bubbling up to window
+    if (!modalOpen && !isTouchEvent(event)) {
+      openModal(this.src, this.alt);
+      event.stopPropagation(); // Prevent the event from bubbling up to window
+    }
   }
 
+  function touchStartListener(event) {
+    touchStartX = event.touches[0].clientX;
+  }
+
+  function touchEndListener(event) {
+    touchEndX = event.changedTouches[0].clientX;
+    if (Math.abs(touchStartX - touchEndX) < 10 && !modalOpen && !isTouchedInsideImage(event.target)) {
+      openModal(this.src, this.alt);
+      event.preventDefault(); // Prevent default touch behavior
+    }
+  }
+  
+  function isTouchEvent(event) {
+    // Check if the event is a touch event
+    return event.type.startsWith('touch');
+  }
+  
   function isTouchedInsideImage(target) {
+    // Check if the touched element or any of its ancestors is an image
     return target.tagName === 'IMG' || target.closest('img');
   }
 
   for (let i = 0; i < images.length; i++) {
     images[i].addEventListener("click", clickListener);
-    images[i].addEventListener("touchend", clickListener);
+    images[i].addEventListener("touchstart", touchStartListener);
+    images[i].addEventListener("touchend", touchEndListener);
   }
 
   closeButton.onclick = function (event) {
@@ -41,30 +64,13 @@ document.addEventListener('DOMContentLoaded', function () {
     event.stopPropagation(); // Prevent the event from bubbling up to window
   };
 
-  window.addEventListener('click', function (event) {
+  window.onclick = function (event) {
     if (modalOpen && event.target === modal && !isTouchedInsideImage(event.target)) {
       closeModal();
     }
-  });
-
-  window.addEventListener('touchend', function (event) {
-    if (modalOpen && event.target === modal && !isTouchedInsideImage(event.target)) {
-      closeModal();
-    }
-  });
-
-  modal.addEventListener("click", function (event) {
-    if (modalOpen && !modalImg.contains(event.target)) {
-      closeModal();
-    }
-  });
-
-  modal.addEventListener("touchend", function (event) {
-    if (modalOpen && !modalImg.contains(event.target)) {
-      closeModal();
-    }
-  });
+  };
 });
+
 
 
 
@@ -326,10 +332,6 @@ document.getElementById('open-maps-link').addEventListener('click', function(eve
       window.location.href = 'https://www.google.com/maps/place/La+Balance+Cafe+Mexicana/@29.6952214,-95.9017876,19z/data=!4m6!3m5!1s0x86413d2d01655555:0x7c34a56f8e44bc9b!8m2!3d29.6952223!4d-95.9010979!16s%2Fg%2F1pp2wyd8n?entry=ttu';
   }
 });
-
-
-
-
 
 
 
