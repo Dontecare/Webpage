@@ -279,6 +279,10 @@ document.addEventListener('DOMContentLoaded', function() {
         // Add a marker for the user's location
         L.marker([userLat, userLng], { icon: customIcon }).addTo(map)
           .bindPopup('<b>Your Location</b>').openPopup();
+
+        // Store the user's location in sessionStorage
+        sessionStorage.setItem('userLat', userLat);
+        sessionStorage.setItem('userLng', userLng);
       });
 
       // Set the flag to indicate that the location has been requested
@@ -286,28 +290,62 @@ document.addEventListener('DOMContentLoaded', function() {
     } else {
       console.log('Geolocation is not supported by your browser.');
     }
+  } else {
+    // If the location has already been requested, retrieve the user's location from sessionStorage
+    var userLat = sessionStorage.getItem('userLat');
+    var userLng = sessionStorage.getItem('userLng');
+
+    if (userLat && userLng) {
+      // Define a custom icon for the user's location marker
+      var customIcon = L.divIcon({
+        className: 'custom-icon',
+        html: '<div class="outer-circle"></div><div class="inner-circle"></div><div class="directional-arrow"></div>'
+      });
+
+      // Add a marker for the user's location
+      L.marker([userLat, userLng], { icon: customIcon }).addTo(map)
+        .bindPopup('<b>Your Location</b>').openPopup();
+    }
   }
 });
-
-
 
 document.getElementById('open-maps-link').addEventListener('click', function(event) {
   event.preventDefault();
   var userAgent = navigator.userAgent || navigator.vendor || window.opera;
 
-  // If it's an iOS device, open Apple Maps
+  // Function to open Apple Maps and fallback to Google Maps if Apple Maps is not installed
+  function openAppleMapsFallbackToGoogleMaps() {
+    // Create a temporary iframe to check if Apple Maps can be opened
+    var iframe = document.createElement('iframe');
+    iframe.style.display = 'none';
+    document.body.appendChild(iframe);
+
+    // Try to open Apple Maps
+    iframe.src = 'maps://?q=La+Balance+Cafe+Mexicana&ll=29.695161,-95.901054';
+
+    // Wait a bit and then check if Apple Maps was opened
+    setTimeout(function() {
+      // If the iframe didn't load, fallback to Google Maps
+      document.body.removeChild(iframe);
+      window.location.href = 'https://www.google.com/maps/place/La+Balance+Cafe+Mexicana/@29.6952214,-95.9017876,19z/data=!4m6!3m5!1s0x86413d2d01655555:0x7c34a56f8e44bc9b!8m2!3d29.6952223!4d-95.9010979!16s%2Fg%2F1pp2wyd8n?entry=ttu';
+    }, 500);
+  }
+
+  // If it's an iOS device, try to open Apple Maps and fallback to Google Maps
   if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-      window.location.href = 'https://maps.apple.com/?q=La+Balance+Cafe+Mexicana&ll=29.695161,-95.901054';
+    openAppleMapsFallbackToGoogleMaps();
   }
   // If it's an Android device, open Google Maps
   else if (/android/i.test(userAgent)) {
-      window.location.href = 'https://www.google.com/maps/place/La+Balance+Cafe+Mexicana/@29.6952214,-95.9017876,19z/data=!4m6!3m5!1s0x86413d2d01655555:0x7c34a56f8e44bc9b!8m2!3d29.6952223!4d-95.9010979!16s%2Fg%2F1pp2wyd8n?entry=ttu';
+    window.location.href = 'https://www.google.com/maps/place/La+Balance+Cafe+Mexicana/@29.6952214,-95.9017876,19z/data=!4m6!3m5!1s0x86413d2d01655555:0x7c34a56f8e44bc9b!8m2!3d29.6952223!4d-95.9010979!16s%2Fg%2F1pp2wyd8n?entry=ttu';
   }
   // For other devices or browsers, provide a fallback link
   else {
-      window.location.href = 'https://www.google.com/maps/place/La+Balance+Cafe+Mexicana/@29.6952214,-95.9017876,19z/data=!4m6!3m5!1s0x86413d2d01655555:0x7c34a56f8e44bc9b!8m2!3d29.6952223!4d-95.9010979!16s%2Fg%2F1pp2wyd8n?entry=ttu';
+    window.location.href = 'https://www.google.com/maps/place/La+Balance+Cafe+Mexicana/@29.6952214,-95.9017876,19z/data=!4m6!3m5!1s0x86413d2d01655555:0x7c34a56f8e44bc9b!8m2!3d29.6952223!4d-95.9010979!16s%2Fg%2F1pp2wyd8n?entry=ttu';
   }
 });
+
+
 
 
 
