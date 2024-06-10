@@ -5,8 +5,6 @@ document.addEventListener('DOMContentLoaded', function () {
   const captionText = document.getElementById("caption");
   const closeButton = document.getElementsByClassName("close")[0];
   let modalOpen = false;
-  let touchStartX = 0;
-  let touchEndX = 0;
 
   function openModal(imageSrc, altText) {
     modal.style.display = "block";
@@ -25,33 +23,17 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function clickListener(event) {
-    if (!modalOpen) {
-      openModal(this.src, this.alt);
-      event.stopPropagation(); // Prevent the event from bubbling up to window
-    }
+    openModal(this.src, this.alt);
+    event.stopPropagation(); // Prevent the event from bubbling up to window
   }
 
-  function touchStartListener(event) {
-    touchStartX = event.touches[0].clientX;
-  }
-
-  function touchEndListener(event) {
-    touchEndX = event.changedTouches[0].clientX;
-    if (Math.abs(touchStartX - touchEndX) < 10 && !modalOpen && !isTouchedInsideImage(event.target)) {
-      openModal(this.src, this.alt);
-      event.preventDefault(); // Prevent default touch behavior
-    }
-  }
-  
   function isTouchedInsideImage(target) {
-    // Check if the touched element or any of its ancestors is an image
     return target.tagName === 'IMG' || target.closest('img');
   }
 
   for (let i = 0; i < images.length; i++) {
     images[i].addEventListener("click", clickListener);
-    images[i].addEventListener("touchstart", touchStartListener);
-    images[i].addEventListener("touchend", touchEndListener);
+    images[i].addEventListener("touchend", clickListener);
   }
 
   closeButton.onclick = function (event) {
@@ -59,11 +41,29 @@ document.addEventListener('DOMContentLoaded', function () {
     event.stopPropagation(); // Prevent the event from bubbling up to window
   };
 
-  window.onclick = function (event) {
+  window.addEventListener('click', function (event) {
     if (modalOpen && event.target === modal && !isTouchedInsideImage(event.target)) {
       closeModal();
     }
-  };
+  });
+
+  window.addEventListener('touchend', function (event) {
+    if (modalOpen && event.target === modal && !isTouchedInsideImage(event.target)) {
+      closeModal();
+    }
+  });
+
+  modal.addEventListener("click", function (event) {
+    if (modalOpen && !modalImg.contains(event.target)) {
+      closeModal();
+    }
+  });
+
+  modal.addEventListener("touchend", function (event) {
+    if (modalOpen && !modalImg.contains(event.target)) {
+      closeModal();
+    }
+  });
 });
 
 
