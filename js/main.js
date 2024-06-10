@@ -1,3 +1,4 @@
+// Modal code
 document.addEventListener('DOMContentLoaded', function () {
   const images = document.getElementsByClassName("image");
   const modal = document.getElementById("myModal");
@@ -25,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function clickListener(event) {
-    if (!modalOpen && !isTouchEvent(event)) {
+    if (!modalOpen) {
       openModal(this.src, this.alt);
       event.stopPropagation(); // Prevent the event from bubbling up to window
     }
@@ -41,11 +42,6 @@ document.addEventListener('DOMContentLoaded', function () {
       openModal(this.src, this.alt);
       event.preventDefault(); // Prevent default touch behavior
     }
-  }
-  
-  function isTouchEvent(event) {
-    // Check if the event is a touch event
-    return event.type.startsWith('touch');
   }
   
   function isTouchedInsideImage(target) {
