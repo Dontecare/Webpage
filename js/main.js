@@ -335,7 +335,55 @@ document.getElementById('open-maps-link').addEventListener('click', function(eve
 // -----------------------------------------------------------------------------
 // -----------------------------------------------------------------------------
 
+// script.js
 
+document.addEventListener("DOMContentLoaded", () => {
+  const menuFilter = document.getElementById("menuFilter");
+
+  menuFilter.addEventListener("change", filterMenu);
+  filterMenu(); // Initially filter the menu
+});
+
+function filterMenu() {
+  const category = document.getElementById("menuFilter").value;
+  const menuSections = document.querySelectorAll(".menu-section");
+
+  menuSections.forEach(section => {
+      const sectionCategory = section.classList[1];
+      if (category === "all" || sectionCategory === category) {
+          section.style.display = "block";
+          if (category === "all") {
+              section.querySelector("h2").style.display = "block";
+          } else {
+              section.querySelector("h2").style.display = "none";
+          }
+      } else {
+          section.style.display = "none";
+      }
+
+      const menuItems = section.querySelectorAll(".menu-item");
+      menuItems.forEach(item => {
+          const itemCategory = item.classList[1];
+          if (category === "all" || itemCategory === category) {
+              item.style.display = "block";
+          } else {
+              item.style.display = "none";
+          }
+      });
+  });
+}
+
+
+
+
+
+
+
+
+
+// -----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
 
 
 if ('serviceWorker' in navigator) {

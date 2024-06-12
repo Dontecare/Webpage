@@ -1066,12 +1066,37 @@ body {
   text-align: right;
 }
 
+.menu-filter {
+  width: 100%;
+  max-width: 300px;
+  margin: 20px auto;
+  padding: 10px;
+  font-size: 1em;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  display: block;
+}
+
 @media (min-width: 768px) {
   .menu-items {
     grid-template-columns: 1fr 1fr;
   }
 
   .menu-item:nth-child(even) {
-    margin-top: 40px;
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 767px) {
+  .menu-item {
+      border-bottom: 1px solid #ccc; /* Add border bottom to each menu item */
+      margin-bottom: 10px; /* Add some space between menu items */
+      padding-bottom: 10px; /* Add padding at the bottom of each menu item */
+  }
+
+  .menu-item:last-child {
+      border-bottom: none; /* Remove border bottom from the last menu item */
+      margin-bottom: 0; /* Remove margin from the last menu item */
+      padding-bottom: 0; /* Remove padding from the last menu item */
   }
 }
