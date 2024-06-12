@@ -355,7 +355,7 @@ body {
       rgba(0, 0, 0, 0.55)
     ),
     /* bottom, image */
-    url(../img/pexels-chanwalrus-958545.jpg);
+    url(../img/cover.jpg);
 
     display: flex;
     align-items: center;
@@ -576,41 +576,83 @@ body {
   }
 }
 
-
+/* ------------------------------------------------------------------------
+---------------------------------------------------------------------
+------------------------------------------------------------------- */
 
 .container {
   position: relative;
   width: 100%;
-  height: auto; /* Or set a specific height */
+  height: 400px; /* Set a specific height */
   margin-bottom: 20px; /* Add space between containers */
+  overflow: hidden; /* Ensure content doesn't overflow */
+}
+
+.container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  filter: blur(5px); /* Adjust the blur level as needed */
+  z-index: 1; /* Ensures the pseudo-element is below the text */
 }
 
 .container .text-overlay {
+  position: absolute;
   top: 0;
   left: 0;
-  height: 100%; /* Adjust the height as needed */
-  background-size: cover;
-  background-position: center;
+  width: 100%;
+  height: 100%; /* Ensure it covers the container */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: rgb(0, 0, 0); /* Text color */
-  padding: 150px;
-  margin: -20px auto;
+  color: rgb(255, 255, 255); /* Text color */
+  padding: 20px;
+  z-index: 2; /* Ensures text is above the blurred background */
+  text-align: center;
 }
 
-.container.container1 .text-overlay {
-  background-image: url('../img/Screen-Shot-2022-01-21-at-7.13.39-AM-1024x683.png');
+.container.container1::before {
+  background-image: url('../img/better wine.jpg');
 }
 
-.container.container2 .text-overlay {
-  background-image: url('../img/pexels-chanwalrus-958545.jpg');
+.container.container2::before {
+  background-image: url('../img/cook.jpg');
 }
 
-.container.container3 .text-overlay {
-  background-image: url('../img/Good_Food_Display_-_NCI_Visuals_Online.jpg');
+.container.container3::before {
+  background-image: url('../img/food.jpg');
 }
+
+/* ------------------------------------------------------------------------
+---------------------------------------------------------------------
+------------------------------------------------------------------- */
+
+.img-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.img-container img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 8px;
+  filter: blur(.5px);
+}
+
+/* ------------------------------------------------------------------------
+---------------------------------------------------------------------
+------------------------------------------------------------------- */
 
 .wrapper {
   background-color: lightgray; /* Set background color for the wrapper */
@@ -735,8 +777,14 @@ body {
 }
 
 .header-image {
-  background: url('../img/pexels-chanwalrus-958545.jpg') no-repeat center center/cover;
-  padding: 100px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 60vh; /* 60% of the viewport height */
+  padding: 20px; /* Adjust padding as needed */
+  color: white;
+  text-align: center;
 }
 
 .header-image h1 {
@@ -746,7 +794,58 @@ body {
 
 .header-image p {
   font-size: 1.5em;
+  margin-top: 10px;
 }
+
+.header-image img {
+  max-height: 100%;
+  width: auto;
+}
+
+
+/* Specific background images for each header */
+.header-image1 {
+  background: url('../img/cover.jpg') no-repeat center center/cover;
+}
+
+.header-image2 {
+  background: url('../img/reserve.jpg') no-repeat center center/cover;
+}
+
+.header-image3 {
+  background: url('../img/manuel.jpg') no-repeat center center/cover;
+}
+
+.header-image4 {
+  background: url('../img/location.jpg') no-repeat center center/cover;
+}
+
+
+.header-img {
+  background: url('../img/cover.jpg') no-repeat center center/cover;
+  padding: 100px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height */
+  color: white; /* Adjust text color for better contrast */
+  text-align: center;
+}
+
+.header-img h1 {
+  font-size: 3em;
+  margin: 0;
+}
+
+.header-img p {
+  font-size: 1.5em;
+  margin-top: 10px;
+}
+
+/* ------------------------------------------------------------------------
+---------------------------------------------------------------------
+------------------------------------------------------------------- */
 
 .reservation-form-section {
   padding: 50px 20px;
@@ -849,19 +948,6 @@ body {
 
 /* Media queries for responsive design */
 @media only screen and (max-width: 768px) {
-  .header-image {
-    padding: 60px 20px; /* Further reduced padding for smaller screens */
-    padding-top: 100px;
-  }
-
-  .header-image h1 {
-    font-size: 2em; /* Adjusted font size for smaller screens */
-  }
-
-  .header-image p {
-    font-size: 1.1em; /* Adjusted font size for smaller screens */
-  }
-
   .reservation-form-section, .contact-info-section, .location-hours-section {
     padding: 30px 20px; /* Further reduced padding for smaller screens */
   }
@@ -1123,4 +1209,286 @@ body {
   font-size: 1.1em; /* Adjust the font size as needed */
   font-weight: 600; /* Adjust the font weight as needed */
   color: #555; /* Adjust the color as needed */
+}
+
+/* ------------------------------------------------------------------------
+---------------------------------------------------------------------
+------------------------------------------------------------------- */
+
+
+.new-news {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f8f8f8;
+}
+
+.news-article {
+  width: 80%;
+  max-width: 800px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.article-title {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.article-meta {
+  font-style: italic;
+  color: #888;
+  margin-bottom: 20px;
+}
+
+.article-content {
+  line-height: 1.6;
+}
+
+.article-content p {
+  margin-bottom: 20px;
+  color: #555;
+}
+
+.article-content figure {
+  margin: 20px 0;
+}
+
+.article-content img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.article-content video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.article-content figcaption {
+  text-align: center;
+  color: #888;
+  font-style: italic;
+  font-size: 14px;
+}
+
+.article-footer {
+  border-top: 1px solid #ddd;
+  padding-top: 20px;
+  margin-top: 20px;
+  font-size: 14px;
+  color: #888;
+}
+
+.article-footer p {
+  margin-bottom: 5px;
+}
+
+
+.section-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.section-buttons button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #333;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.section-buttons button:hover {
+  background-color: #555;
+}
+
+.next-section {
+  margin-left: auto;
+}
+
+/* ------------------------------------------------------------------------
+---------------------------------------------------------------------
+------------------------------------------------------------------- */
+
+
+.carousel-body {
+  height: 600px;
+  margin: 0;
+  display: grid;
+  grid-template-rows: 500px 100px;
+  grid-template-columns: 1fr repeat(10, auto) 1fr; /* Adjusted grid columns */
+  align-items: center;
+  justify-items: center;
+  font-family: 'Poppins', sans-serif;
+  position: relative; /* Ensure relative positioning for absolute children */
+}
+
+.item img {
+  width: 100%; /* Make the image take up 100% of its container's width */
+  height: 100%; /* Make the image take up 100% of its container's height */
+  object-fit: cover; /* Ensure the image covers the entire container, maintaining aspect ratio */
+  border-radius: 20px; /* Retain the border-radius if desired */
+}
+
+.carousel-arrows {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  z-index: 10;
+}
+
+.carousel-arrows button {
+  background-color: rgba(255, 255, 255, 0.5);
+  border: none;
+  color: #333;
+  font-size: 1.5em;
+  cursor: pointer;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.carousel-arrows button:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+
+main#carousel {
+  grid-row: 1 / 2;
+  grid-column: 1 / 12; /* Adjusted to span all columns */
+  width: 100vw;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  perspective: 600px;
+  --items: 5;
+  --middle: 3;
+  --position: 1;
+  pointer-events: none;
+  position: relative; /* Ensure relative positioning for absolute children */
+}
+
+div.item {
+  text-align: center;
+  padding: 20px;
+  border-radius: 20px;
+  background-color: #fff;
+  position: absolute;
+  width: 300px;
+  height: 250px;
+  background-color: white;
+  --r: calc(var(--position) - var(--offset));
+  --abs: max(calc(var(--r) * -1), var(--r));
+  transition: all 0.25s linear;
+  transform: rotateY(calc(-10deg * var(--r))) translateX(calc(-300px * var(--r)));
+  z-index: calc((var(--position) - var(--abs)));
+}
+
+
+/* Adjust input positions */
+input[type="radio"] {
+  grid-column: span 1; /* Span 1 column */
+  grid-row: 2 / 3; /* Place in the second row */
+  justify-self: center; /* Center horizontally */
+}
+
+input:nth-of-type(1):checked ~ main#carousel {
+  --position: 1;
+}
+
+input:nth-of-type(2):checked ~ main#carousel {
+  --position: 2;
+}
+
+input:nth-of-type(3):checked ~ main#carousel {
+  --position: 3;
+}
+
+input:nth-of-type(4):checked ~ main#carousel {
+  --position: 4;
+}
+
+input:nth-of-type(5):checked ~ main#carousel {
+  --position: 5;
+}
+
+input:nth-of-type(6):checked ~ main#carousel {
+  --position: 6;
+}
+
+input:nth-of-type(7):checked ~ main#carousel {
+  --position: 7;
+}
+
+input:nth-of-type(8):checked ~ main#carousel {
+  --position: 8;
+}
+
+input:nth-of-type(9):checked ~ main#carousel {
+  --position: 9;
+}
+
+input:nth-of-type(10):checked ~ main#carousel {
+  --position: 10;
+}
+
+/* Adjust offsets for items */
+div.item:nth-of-type(1) {
+  --offset: 1;
+}
+
+div.item:nth-of-type(2) {
+  --offset: 2;
+}
+
+div.item:nth-of-type(3) {
+  --offset: 3;
+}
+
+div.item:nth-of-type(4) {
+  --offset: 4;
+}
+
+div.item:nth-of-type(5) {
+  --offset: 5;
+}
+
+div.item:nth-of-type(6) {
+  --offset: 6; /* New offset for the 6th item */
+}
+
+div.item:nth-of-type(7) {
+  --offset: 7; /* New offset for the 7th item */
+}
+
+div.item:nth-of-type(8) {
+  --offset: 8; /* New offset for the 8th item */
+}
+
+div.item:nth-of-type(9) {
+  --offset: 9; /* New offset for the 9th item */
+}
+
+div.item:nth-of-type(10) {
+  --offset: 10; /* New offset for the 10th item */
 }

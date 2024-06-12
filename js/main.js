@@ -374,7 +374,47 @@ function filterMenu() {
 }
 
 
+// -----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
 
+document.addEventListener('DOMContentLoaded', function() {
+  const radios = document.querySelectorAll('input[type="radio"][name="position"]');
+  const prevButton = document.querySelector('.prev-arrow');
+  const nextButton = document.querySelector('.next-arrow');
+
+  let currentPosition = 0; // Starting position (zero-based index)
+
+  // Function to update carousel position based on current index
+  const updateCarouselPosition = () => {
+      radios[currentPosition].checked = true;
+      // Manually trigger change event (for compatibility with some browsers)
+      radios[currentPosition].dispatchEvent(new Event('change'));
+  };
+
+  // Event listener for radio button change
+  radios.forEach(function(radio, index) {
+      radio.addEventListener('change', function() {
+          currentPosition = index;
+          updateCarouselPosition();
+      });
+  });
+
+  // Event listener for previous button
+  prevButton.addEventListener('click', function() {
+      currentPosition = (currentPosition - 1 + radios.length) % radios.length;
+      updateCarouselPosition();
+  });
+
+  // Event listener for next button
+  nextButton.addEventListener('click', function() {
+      currentPosition = (currentPosition + 1) % radios.length;
+      updateCarouselPosition();
+  });
+
+  // Initial setup to ensure correct radio button is checked on load
+  updateCarouselPosition();
+});
 
 
 
