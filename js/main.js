@@ -263,6 +263,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const radios = document.querySelectorAll('.radio-button');
     radios.forEach((radio, index) => {
       radio.checked = index === currentIndex;
+      if (index === currentIndex) {
+        slides[index].classList.remove('inactive');
+      } else {
+        slides[index].classList.add('inactive');
+      }
     });
   };
 
@@ -302,6 +307,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 });
+
 
 
 

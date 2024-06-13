@@ -3,6 +3,16 @@ body {
   font-family: Arial, sans-serif;
 }
 
+.main-heading {
+  font-size: 2rem; /* Adjust font size as needed */
+  text-align: center;
+  width: 90%; /* Set the width to ensure it fits on the screen */
+  margin: 0 auto; /* Center the heading */
+  overflow: hidden; /* Hide overflow */
+  word-wrap: break-word; /* Allow wrapping */
+  line-height: 1.0; /* Increase line height for more space between lines */
+}
+
 .navbar-wrapper {
   position: fixed;
   top: 0;
@@ -597,7 +607,7 @@ body {
   height: 100%;
   background-size: cover;
   background-position: center;
-  filter: blur(5px); /* Adjust the blur level as needed */
+  filter: blur(2.5px); /* Adjust the blur level as needed */
   z-index: 1; /* Ensures the pseudo-element is below the text */
 }
 
@@ -805,19 +815,103 @@ body {
 
 /* Specific background images for each header */
 .header-image1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 60vh; /* 60% of the viewport height */
+  padding: 20px; /* Adjust padding as needed */
+  color: white;
+  text-align: center;
+  position: relative; /* Add relative positioning */
+}
+
+.header-image1::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background: url('../img/cover.jpg') no-repeat center center/cover;
+  background-size: cover;
+  filter: blur(1px); /* Add blur effect */
+  z-index: -1; /* Place the pseudo-element behind the content */
 }
 
 .header-image2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 60vh; /* 60% of the viewport height */
+  padding: 20px; /* Adjust padding as needed */
+  color: white;
+  text-align: center;
+  position: relative; /* Add relative positioning */
+}
+
+.header-image2::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background: url('../img/reserve.jpg') no-repeat center center/cover;
+  background-size: cover;
+  filter: blur(1px); /* Add blur effect */
+  z-index: -1; /* Place the pseudo-element behind the content */
 }
 
 .header-image3 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 60vh; /* 60% of the viewport height */
+  padding: 20px; /* Adjust padding as needed */
+  color: white;
+  text-align: center;
+  position: relative; /* Add relative positioning */
+}
+
+.header-image3::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background: url('../img/manuel.jpg') no-repeat center center/cover;
+  background-size: cover;
+  filter: blur(1px); /* Add blur effect */
+  z-index: -1; /* Place the pseudo-element behind the content */
 }
 
 .header-image4 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 60vh; /* 60% of the viewport height */
+  padding: 20px; /* Adjust padding as needed */
+  color: white;
+  text-align: center;
+  position: relative; /* Add relative positioning */
+}
+
+.header-image4::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background: url('../img/location.jpg') no-repeat center center/cover;
+  background-size: cover;
+  filter: blur(1px); /* Add blur effect */
+  z-index: -1; /* Place the pseudo-element behind the content */
 }
 
 
@@ -1339,11 +1433,16 @@ body {
 }
 
 
+
 .item img {
   width: 100%; /* Make the image take up 100% of its container's width */
   height: 100%; /* Make the image take up 100% of its container's height */
   object-fit: cover; /* Ensure the image covers the entire container, maintaining aspect ratio */
   border-radius: 20px; /* Retain the border-radius if desired */
+}
+
+.item.inactive img {
+  opacity: 0.25;
 }
 
 .carousel-arrows {
@@ -1412,7 +1511,7 @@ div.item {
   background-color: white;
   --r: calc(var(--position) - var(--offset));
   --abs: max(calc(var(--r) * -1), var(--r));
-  transition: all 0.25s linear;
+  transition: all .75s linear;
   transform: rotateY(calc(-10deg * var(--r))) translateX(calc(-300px * var(--r)));
   z-index: calc((var(--position) - var(--abs)));
 }
