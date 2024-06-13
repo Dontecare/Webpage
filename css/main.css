@@ -1334,8 +1334,10 @@ body {
   align-items: center;
   justify-items: center;
   font-family: 'Poppins', sans-serif;
-  position: relative; /* Ensure relative positioning for absolute children */
+  overflow: hidden;
+  position: relative;
 }
+
 
 .item img {
   width: 100%; /* Make the image take up 100% of its container's width */
@@ -1369,7 +1371,18 @@ body {
   background-color: rgba(255, 255, 255, 0.8);
 }
 
-
+  #carousel {
+    display: flex;
+    transition: transform 0.5s ease;
+    width: calc(100% * 10); /* Adjusted width to accommodate all slides */
+  }
+  
+  div.item {
+    /* Other styles */
+    flex: 0 0 auto;
+    width: 100%;
+  }
+  
 main#carousel {
   grid-row: 1 / 2;
   grid-column: 1 / 12; /* Adjusted to span all columns */
@@ -1405,90 +1418,115 @@ div.item {
 }
 
 
+/* Existing CSS remains unchanged */
+
 /* Adjust input positions */
-input[type="radio"] {
-  grid-column: span 1; /* Span 1 column */
+.radio-container {
+  grid-column: 1 / 12; /* Span all columns */
   grid-row: 2 / 3; /* Place in the second row */
   justify-self: center; /* Center horizontally */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  bottom: 0px;
 }
 
+.radio-container input[type="radio"] {
+  display: inline-block;
+  width: 10px; /* Adjust width as needed */
+  height: 10px; /* Adjust height as needed */
+  margin: 0 5px; /* Adjust spacing between radios */
+}
+
+
+div.item:nth-of-type(1) { --offset: 1; }
+div.item:nth-of-type(2) { --offset: 2; }
+div.item:nth-of-type(3) { --offset: 3; }
+div.item:nth-of-type(4) { --offset: 4; }
+div.item:nth-of-type(5) { --offset: 5; }
+div.item:nth-of-type(6) { --offset: 6; }
+div.item:nth-of-type(7) { --offset: 7; }
+div.item:nth-of-type(8) { --offset: 8; }
+div.item:nth-of-type(9) { --offset: 9; }
+div.item:nth-of-type(10) { --offset: 10; }
+
+input:nth-of-type(1) {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+}
 input:nth-of-type(1):checked ~ main#carousel {
   --position: 1;
 }
 
+input:nth-of-type(2) {
+  grid-column: 3 / 4;
+  grid-row: 2 / 3;
+}
 input:nth-of-type(2):checked ~ main#carousel {
   --position: 2;
 }
 
+input:nth-of-type(3) {
+  grid-column: 4 / 5;
+  grid-row: 2 / 3;
+}
 input:nth-of-type(3):checked ~ main#carousel {
   --position: 3;
 }
 
+input:nth-of-type(4) {
+  grid-column: 5 / 6;
+  grid-row: 2 / 3;
+}
 input:nth-of-type(4):checked ~ main#carousel {
   --position: 4;
 }
 
+input:nth-of-type(5) {
+  grid-column: 6 / 7;
+  grid-row: 2 / 3;
+}
 input:nth-of-type(5):checked ~ main#carousel {
   --position: 5;
 }
 
+input:nth-of-type(6) {
+  grid-column: 7 / 8;
+  grid-row: 2 / 3;
+}
 input:nth-of-type(6):checked ~ main#carousel {
   --position: 6;
 }
 
+input:nth-of-type(7) {
+  grid-column: 8 / 9;
+  grid-row: 2 / 3;
+}
 input:nth-of-type(7):checked ~ main#carousel {
   --position: 7;
 }
 
+input:nth-of-type(8) {
+  grid-column: 9 / 10;
+  grid-row: 2 / 3;
+}
 input:nth-of-type(8):checked ~ main#carousel {
   --position: 8;
 }
 
+input:nth-of-type(9) {
+  grid-column: 10 / 11;
+  grid-row: 2 / 3;
+}
 input:nth-of-type(9):checked ~ main#carousel {
   --position: 9;
 }
 
+input:nth-of-type(10) {
+  grid-column: 11 / 12;
+  grid-row: 2 / 3;
+}
 input:nth-of-type(10):checked ~ main#carousel {
   --position: 10;
-}
-
-/* Adjust offsets for items */
-div.item:nth-of-type(1) {
-  --offset: 1;
-}
-
-div.item:nth-of-type(2) {
-  --offset: 2;
-}
-
-div.item:nth-of-type(3) {
-  --offset: 3;
-}
-
-div.item:nth-of-type(4) {
-  --offset: 4;
-}
-
-div.item:nth-of-type(5) {
-  --offset: 5;
-}
-
-div.item:nth-of-type(6) {
-  --offset: 6; /* New offset for the 6th item */
-}
-
-div.item:nth-of-type(7) {
-  --offset: 7; /* New offset for the 7th item */
-}
-
-div.item:nth-of-type(8) {
-  --offset: 8; /* New offset for the 8th item */
-}
-
-div.item:nth-of-type(9) {
-  --offset: 9; /* New offset for the 9th item */
-}
-
-div.item:nth-of-type(10) {
-  --offset: 10; /* New offset for the 10th item */
 }

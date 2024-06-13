@@ -246,6 +246,66 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
+document.addEventListener('DOMContentLoaded', function() {
+  const slides = document.querySelectorAll('.item');
+  const totalSlides = slides.length;
+  let currentIndex = 0;
+  let intervalId; // To store the interval ID
+
+  // Function to move to the next slide
+  const nextSlide = () => {
+    currentIndex = (currentIndex + 1) % totalSlides;
+    updateRadioButtons();
+  };
+
+  // Function to update the active radio button
+  const updateRadioButtons = () => {
+    const radios = document.querySelectorAll('.radio-button');
+    radios.forEach((radio, index) => {
+      radio.checked = index === currentIndex;
+    });
+  };
+
+  // Function to start the auto slide interval
+  const startAutoSlide = () => {
+    intervalId = setInterval(nextSlide, 5000);
+  };
+
+  // Function to stop and restart the auto slide interval
+  const restartAutoSlide = () => {
+    clearInterval(intervalId); // Clear the existing interval
+    setTimeout(startAutoSlide, 10000); // Restart after 6 seconds
+  };
+
+  // Auto slide to the next item every 2 seconds
+  startAutoSlide();
+
+  // Previous and next button functionality
+  document.querySelector('.prev-arrow').addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+    updateRadioButtons();
+    restartAutoSlide(); // Restart auto slide after user interaction
+  });
+
+  document.querySelector('.next-arrow').addEventListener('click', () => {
+    nextSlide();
+    restartAutoSlide(); // Restart auto slide after user interaction
+  });
+
+  // Radio button functionality
+  const radioButtons = document.querySelectorAll('.radio-button');
+  radioButtons.forEach(radioButton => {
+    radioButton.addEventListener('click', () => {
+      currentIndex = Array.from(radioButtons).indexOf(radioButton);
+      updateRadioButtons();
+      restartAutoSlide(); // Restart auto slide after user interaction
+    });
+  });
+});
+
+
+
+
 // -----------------------------------------------------------------------------
 // -----------------------------------------------------------------------------
 // -----------------------------------------------------------------------------
@@ -377,46 +437,6 @@ function filterMenu() {
 // -----------------------------------------------------------------------------
 // -----------------------------------------------------------------------------
 // -----------------------------------------------------------------------------
-
-document.addEventListener('DOMContentLoaded', function() {
-  const radios = document.querySelectorAll('input[type="radio"][name="position"]');
-  const prevButton = document.querySelector('.prev-arrow');
-  const nextButton = document.querySelector('.next-arrow');
-
-  let currentPosition = 0; // Starting position (zero-based index)
-
-  // Function to update carousel position based on current index
-  const updateCarouselPosition = () => {
-      radios[currentPosition].checked = true;
-      // Manually trigger change event (for compatibility with some browsers)
-      radios[currentPosition].dispatchEvent(new Event('change'));
-  };
-
-  // Event listener for radio button change
-  radios.forEach(function(radio, index) {
-      radio.addEventListener('change', function() {
-          currentPosition = index;
-          updateCarouselPosition();
-      });
-  });
-
-  // Event listener for previous button
-  prevButton.addEventListener('click', function() {
-      currentPosition = (currentPosition - 1 + radios.length) % radios.length;
-      updateCarouselPosition();
-  });
-
-  // Event listener for next button
-  nextButton.addEventListener('click', function() {
-      currentPosition = (currentPosition + 1) % radios.length;
-      updateCarouselPosition();
-  });
-
-  // Initial setup to ensure correct radio button is checked on load
-  updateCarouselPosition();
-});
-
-
 
 
 
