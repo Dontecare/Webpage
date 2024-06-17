@@ -2,25 +2,31 @@
 <html class="no-js" lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <title>About</title>
-  <meta name="description" content="This site will serve as the hub for many sub responsive layouts">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title>About</title>
+    <meta name="description" content="This site will serve as the hub for many sub responsive layouts">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+    <meta property="og:title" content="">
+    <meta property="og:type" content="">
+    <meta property="og:url" content="">
+    <meta property="og:image" content="">
+  
+    <!-- Place favicon.ico in the root directory -->
+  
+    <link rel="manifest" href="manifest.json">
+  
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+NG+Modern:wght@100..400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
 
-  <meta property="og:title" content="">
-  <meta property="og:type" content="">
-  <meta property="og:url" content="">
-  <meta property="og:image" content="">
-
-  <!-- Place favicon.ico in the root directory -->
-
-  <link rel="manifest" href="manifest.json">
-
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/main.css">
-
-  <meta name="theme-color" content="#fafafa">
-</head>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+  
+    <meta name="theme-color" content="#fafafa">
+  </head>
 
 <body>
     <div class="navbar-wrapper" id="navbarWrapper">
@@ -30,7 +36,7 @@
           <img src="./img/file.jpg" alt="Business Logo" class="logo">
           <span class="business-name">La Balance Cafe</span>
         </div>
-        <div class="nav-right">
+        <div class="nav-right header-font">
             <a href="./index.html" class="nav-link">Home</a>
             <a href="./menu.html" class="nav-link">Menu</a>
             <a href="./reservations.html" class="nav-link">Reservations</a>
@@ -41,7 +47,7 @@
             <button class="menu-icon">☰</button>
           </div>
         </nav>
-        <div id="mobile-menu" class="mobile-menu">
+        <div id="mobile-menu" class="mobile-menu header-font">
           <button class="menu-icon">✖</button>
           <a href="./index.html" class="mobile-nav-link">Home</a>
           <a href="./menu.html" class="mobile-nav-link">Menu</a>
@@ -53,8 +59,8 @@
 
       <section class="header-section">
         <div class="header-image header-image1">
-            <h1>Menu</h1>
-            <p>Book your table at our restaurant easily.</p>
+            <h1 class="header-font">Menu</h1>
+            <p class="subheader-font">See what we have for you</p>
         </div>
     </section>
 
@@ -74,112 +80,112 @@
         </select>
 
         <!-- <div class="menu-section appetizers">
-            <h2 class="menu-h2">Appetizers</h2>
+            <h2 class="menu-h2 title">Appetizers</h2>
             <div class="menu-items">
                 <div class="menu-item appetizers">
                     <div class="item-header">
-                        <span class="item-name">Fried Spring Rolls</span>
+                        <span class="item-name items">Fried Spring Rolls</span>
                         <span class="item-price">$14</span>
                     </div>
-                    <span class="item-description">Chicken or vegetable</span>
+                    <span class="item-description menu-font">Chicken or vegetable</span>
                 </div>
                 <div class="menu-item appetizers">
                     <div class="item-header">
-                        <span class="item-name">Tofu Tod</span>
+                        <span class="item-name items">Tofu Tod</span>
                         <span class="item-price">$15</span>
                     </div>
-                    <span class="item-description">Fried tofu with a mild chili peanut sauce</span>
+                    <span class="item-description menu-font">Fried tofu with a mild chili peanut sauce</span>
                 </div>
                 <div class="menu-item appetizers">
                     <div class="item-header">
-                        <span class="item-name">Fried Spring Rolls</span>
+                        <span class="item-name items">Fried Spring Rolls</span>
                         <span class="item-price">$14</span>
                     </div>
-                    <span class="item-description">Chicken or vegetable</span>
+                    <span class="item-description menu-font">Chicken or vegetable</span>
                 </div>
                 <div class="menu-item appetizers">
                     <div class="item-header">
-                        <span class="item-name">Tofu Tod</span>
+                        <span class="item-name items">Tofu Tod</span>
                         <span class="item-price">$15</span>
                     </div>
-                    <span class="item-description">Fried tofu with a mild chili peanut sauce</span>
+                    <span class="item-description menu-font">Fried tofu with a mild chili peanut sauce</span>
                 </div>
                 <!-- More items here 
             </div>
         </div> -->
 
         <div class="menu-section breakfast">
-            <h2 class="menu-h2">Breakfast Burritos</h2>
-            <h3 class="menu-subheading">(Substitutions/additions
+            <h2 class="menu-h2 title">Breakfast Burritos</h2>
+            <h3 class="menu-subheading text">(Substitutions/additions
                 $2.00)</h3>
             <div class="menu-items">
                 <div class="menu-item breakfast">
                     <div class="item-header">
-                        <span class="item-name">THE HULK (Veggie)</span>
+                        <span class="item-name items">THE HULK (Veggie)</span>
                         <span class="item-price">$8.99</span>
                     </div>
-                    <span class="item-description">Spinach, onion, mushroom, potato, egg and cheese</span>
+                    <span class="item-description menu-font">Spinach, onion, mushroom, potato, egg and cheese</span>
                 </div>
                 <div class="menu-item breakfast">
                     <div class="item-header">
-                        <span class="item-name">POTATO & CHEESE (Veggie)</span>
+                        <span class="item-name items">POTATO & CHEESE (Veggie)</span>
                         <span class="item-price">$8.99</span>
                     </div>
-                    <span class="item-description">Potatoes, egg and cheese</span>
+                    <span class="item-description menu-font">Potatoes, egg and cheese</span>
                 </div>
                 <div class="menu-item breakfast">
                     <div class="item-header">
-                        <span class="item-name">THE TEXAN'S (Veggie)</span>
+                        <span class="item-name items">THE TEXAN'S (Veggie)</span>
                         <span class="item-price">$8.99</span>
                     </div>
-                    <span class="item-description">Tomatoes, onion, jalapeño, egg and cheese</span>
+                    <span class="item-description menu-font">Tomatoes, onion, jalapeño, egg and cheese</span>
                 </div>
                 <div class="menu-item breakfast">
                     <div class="item-header">
-                        <span class="item-name">BACON & EGG</span>
+                        <span class="item-name items">BACON & EGG</span>
                         <span class="item-price">$8.99</span>
                     </div>
-                    <span class="item-description">Pork Bacon, egg and cheese</span>
+                    <span class="item-description menu-font">Pork Bacon, egg and cheese</span>
                 </div>
                 <div class="menu-item breakfast">
                     <div class="item-header">
-                        <span class="item-name">CHORIZO & POTATO</span>
+                        <span class="item-name items">CHORIZO & POTATO</span>
                         <span class="item-price">$8.99</span>
                     </div>
-                    <span class="item-description">Chorizo, cheese, egg and potato</span>
+                    <span class="item-description menu-font">Chorizo, cheese, egg and potato</span>
                 </div>
                 <div class="menu-item breakfast">
                     <div class="item-header">
-                        <span class="item-name">CHICKEN POTATO</span>
+                        <span class="item-name items">CHICKEN POTATO</span>
                         <span class="item-price">$8.99</span>
                     </div>
-                    <span class="item-description">Chicken, potato, egg and cheese</span>
+                    <span class="item-description menu-font">Chicken, potato, egg and cheese</span>
                 </div>
                 <div class="menu-item breakfast">
                     <div class="item-header">
-                        <span class="item-name">SUPREME FULSHEAR</span>
+                        <span class="item-name items">SUPREME FULSHEAR</span>
                         <span class="item-price">$8.99</span>
                     </div>
-                    <span class="item-description">Bacon, egg, ham, potato, cheese</span>
+                    <span class="item-description menu-font">Bacon, egg, ham, potato, cheese</span>
                 </div>
                 <div class="menu-item breakfast">
                     <div class="item-header">
-                        <span class="item-name">SAUSAGE & EGG</span>
+                        <span class="item-name items">SAUSAGE & EGG</span>
                         <span class="item-price">$8.99</span>
                     </div>
-                    <span class="item-description">Home made pork sausage, egg and cheese</span>
+                    <span class="item-description menu-font">Home made pork sausage, egg and cheese</span>
                 </div>
                 <!-- More items here -->
             </div>
         </div>
 
         <div class="menu-section taco">
-            <h2 class="menu-h2">Crispy Tacos</h2>
-            <h3 class="menu-subheading">(Three 3 per order)</h3> 
+            <h2 class="menu-h2 title">Crispy Tacos</h2>
+            <h3 class="menu-subheading text">(Three 3 per order)</h3> 
             <div class="menu-items">
                 <div class="menu-item taco">
                     <div class="item-header">
-                        <span class="item-description">Seasoned ground beef, lettuce, pico de Gallo, cheese, rice, beans and sour cream</span>
+                        <span class="item-description menu-font">Seasoned ground beef, lettuce, pico de Gallo, cheese, rice, beans and sour cream</span>
                         <span class="item-price">$12.99</span>
                     </div>
                 </div>
@@ -189,24 +195,24 @@
         </div>
         
         <div class="menu-section quesadilla">
-            <h2 class="menu-h2">Quesadillas</h2>
-            <h3 class="menu-subheading">(Served with guacamole and sour cream)</h3> 
+            <h2 class="menu-h2 title">Quesadillas</h2>
+            <h3 class="menu-subheading text">(Served with guacamole and sour cream)</h3> 
             <div class="menu-items">
                 <div class="menu-item quesadilla">
                     <div class="item-header">
-                        <span class="item-name">Cheese</span>
+                        <span class="item-name items">Cheese</span>
                         <span class="item-price">$10.99</span>
                     </div>
                 </div>
                 <div class="menu-item quesadilla">
                     <div class="item-header">
-                        <span class="item-name">Chicken</span>
+                        <span class="item-name items">Chicken</span>
                         <span class="item-price">$11.99</span>
                     </div>
                 </div>
                 <div class="menu-item quesadilla">
                     <div class="item-header">
-                        <span class="item-name">Fajita</span>
+                        <span class="item-name items">Fajita</span>
                         <span class="item-price">$12.99</span>
                     </div>
                 </div>
@@ -215,314 +221,314 @@
         </div>
         
         <div class="menu-section originals">
-            <h2 class="menu-h2">La Balance Originals</h2>
-            <h3 class="menu-subheading">(Also available in a burrito bowl)</h3>
+            <h2 class="menu-h2 title">La Balance Originals</h2>
+            <h3 class="menu-subheading text">(Also available in a burrito bowl)</h3>
             <div class="menu-items">
                 <div class="menu-item originals">
                     <div class="item-header">
-                        <span class="item-name">TIJUANA</span>
+                        <span class="item-name items">TIJUANA</span>
                         <span class="item-price">$10.99</span>
                     </div>
-                    <span class="item-description">20/80 Grass fed ground beef, Mexican rice, cheese, beans and pico de gallo</span>
+                    <span class="item-description menu-font">20/80 Grass fed ground beef, Mexican rice, cheese, beans and pico de gallo</span>
                 </div>
                 <div class="menu-item originals">
                     <div class="item-header">
-                        <span class="item-name">CARNE ADOBADA</span>
+                        <span class="item-name items">CARNE ADOBADA</span>
                         <span class="item-price">$10.99</span>
                     </div>
-                    <span class="item-description">Slow roasted pork adobo, Mexican rice, cheese, beans and pico de gallo</span>
+                    <span class="item-description menu-font">Slow roasted pork adobo, Mexican rice, cheese, beans and pico de gallo</span>
                 </div>
                 <div class="menu-item originals">
                     <div class="item-header">
-                        <span class="item-name">THE MEXICAN</span>
+                        <span class="item-name items">THE MEXICAN</span>
                         <span class="item-price">$10.99</span>
                     </div>
-                    <span class="item-description">Chorizo, Potato, Mexican rice, cheese, beans and pico de gallo</span>
+                    <span class="item-description menu-font">Chorizo, Potato, Mexican rice, cheese, beans and pico de gallo</span>
                 </div>
                 <div class="menu-item originals">
                     <div class="item-header">
-                        <span class="item-name">CARNITAS</span>
+                        <span class="item-name items">CARNITAS</span>
                         <span class="item-price">$10.99</span>
                     </div>
-                    <span class="item-description">Simmered pork, Mexican rice, cheese, beans and pico de gallo</span>
+                    <span class="item-description menu-font">Simmered pork, Mexican rice, cheese, beans and pico de gallo</span>
                 </div>
                 <div class="menu-item originals">
                     <div class="item-header">
-                        <span class="item-name">TEX-MEX</span>
+                        <span class="item-name items">TEX-MEX</span>
                         <span class="item-price">$13.99</span>
                     </div>
-                    <span class="item-description">Fajita beef, lettuce, guacamole, sour cream, Mexican rice, cheese, beans and pico de gallo</span>
+                    <span class="item-description menu-font">Fajita beef, lettuce, guacamole, sour cream, Mexican rice, cheese, beans and pico de gallo</span>
                 </div>
                 <div class="menu-item originals">
                     <div class="item-header">
-                        <span class="item-name">BEAN & CHEESE</span>
+                        <span class="item-name items">BEAN & CHEESE</span>
                         <span class="item-price">$9.99</span>
                     </div>
-                    <span class="item-description">Beans, lettuce, guacamole, sour cream Cheese and pico de gallo</span>
+                    <span class="item-description menu-font">Beans, lettuce, guacamole, sour cream Cheese and pico de gallo</span>
                 </div>
                 <!-- More items here -->
             </div>
         </div>
 
         <div class="menu-section specialties">
-            <h2 class="menu-h2">House Specialties</h2>
+            <h2 class="menu-h2 title">House Specialties</h2>
             <div class="menu-items">
                 <div class="menu-item specialties">
                     <div class="item-header">
-                        <span class="item-name">GORDITAS (each)</span>
+                        <span class="item-name items">GORDITAS (each)</span>
                         <span class="item-price">$5.99</span>
                     </div>
-                    <span class="item-description">The traditional Gordita is made with a masa pastry, same dough used to make tortillas, and stuffed or topped with cheese, meat, veggies or other fillings.</span>
-                    <span class="item-description">Your Choice of Fajita, Chicken, Pastor or Chorizo served with lettuce, tomato, sour cream and cheese.</span>
+                    <span class="item-description menu-font">The traditional Gordita is made with a masa pastry, same dough used to make tortillas, and stuffed or topped with cheese, meat, veggies or other fillings.</span>
+                    <span class="item-description menu-font">Your Choice of Fajita, Chicken, Pastor or Chorizo served with lettuce, tomato, sour cream and cheese.</span>
                 </div>
                 <div class="menu-item specialties">
                     <div class="item-header">
-                        <span class="item-name">FLAUTAS (3 units)</span>
+                        <span class="item-name items">FLAUTAS (3 units)</span>
                         <span class="item-price">$11.99</span>
                     </div>
-                    <span class="item-description">Flautas are made from tortillas, filled and rolled up and fried. The result: a thin, flute-shaped roll that's extra-crispy bursting with a savory, spiced filling.</span>
-                    <span class="item-description">Chicken, lettuce, tomato, queso fresco, rice, beans and sour cream.</span>
+                    <span class="item-description menu-font">Flautas are made from tortillas, filled and rolled up and fried. The result: a thin, flute-shaped roll that's extra-crispy bursting with a savory, spiced filling.</span>
+                    <span class="item-description menu-font">Chicken, lettuce, tomato, queso fresco, rice, beans and sour cream.</span>
                 </div>
                 <div class="menu-item specialties">
                     <div class="item-header">
-                        <span class="item-name">TOSTADAS (each)</span>
+                        <span class="item-name items">TOSTADAS (each)</span>
                         <span class="item-price">$5.99</span>
                     </div>
-                    <span class="item-description">Dishes made over crispy flat tortillas that are fried.</span>
-                    <span class="item-description">Your Choice of Fajita, Chicken, Pastor or Chorizo served with beans, lettuce, tomato, queso fresco and sour cream.</span>
+                    <span class="item-description menu-font">Dishes made over crispy flat tortillas that are fried.</span>
+                    <span class="item-description menu-font">Your Choice of Fajita, Chicken, Pastor or Chorizo served with beans, lettuce, tomato, queso fresco and sour cream.</span>
                     </div>
                 <div class="menu-item specialties">
                     <div class="item-header">
-                        <span class="item-name">TORTAS (each)</span>
+                        <span class="item-name items">TORTAS (each)</span>
                         <span class="item-price">$9.99</span>
                     </div>
-                    <span class="item-description">"Torta" translates to "sandwich," a soft roll filled with meat, sauce and other veggies.</span>
-                    <span class="item-description">Your Choice of Fajita, Chicken, Pastor or Chorizo served with beans, mayonnaise, lettuce, tomato, onions and avocado.</span>
+                    <span class="item-description menu-font">"Torta" translates to "sandwich," a soft roll filled with meat, sauce and other veggies.</span>
+                    <span class="item-description menu-font">Your Choice of Fajita, Chicken, Pastor or Chorizo served with beans, mayonnaise, lettuce, tomato, onions and avocado.</span>
                     </div>
                 <div class="menu-item specialties">
                     <div class="item-header">
-                        <span class="item-name">CHICKEN GUERRERO</span>
+                        <span class="item-name items">CHICKEN GUERRERO</span>
                         <span class="item-price">$13.99</span>
                     </div>
-                        <span class="item-description">Our own interpretation of this savory dish.</span>
-                        <span class="item-description">Served in a Cream Cheese Sauce with Mushrooms, Spinach and Mash Potatoes</span>
+                        <span class="item-description menu-font">Our own interpretation of this savory dish.</span>
+                        <span class="item-description menu-font">Served in a Cream Cheese Sauce with Mushrooms, Spinach and Mash Potatoes</span>
                     </div>
                 <div class="menu-item specialties">
                     <div class="item-header">
-                        <span class="item-name">TACOS (each)</span>
+                        <span class="item-name items">TACOS (each)</span>
                         <span class="item-price">$2.50</span>
                     </div>
-                    <span class="item-description">A small hand-sized corn tortilla topped with a filling and eaten by hand.</span>
-                        <span class="item-description">Your Choice of Fajita, Pastor or Chicken (Pollo) served with cilantro and onions.</span>
+                    <span class="item-description menu-font">A small hand-sized corn tortilla topped with a filling and eaten by hand.</span>
+                        <span class="item-description menu-font">Your Choice of Fajita, Pastor or Chicken (Pollo) served with cilantro and onions.</span>
                     </div>
                 <div class="menu-item specialties">
                     <div class="item-header">
-                        <span class="item-name">TACOS DORADOS DE PAPÁ (3)</span>
+                        <span class="item-name items">TACOS DORADOS DE PAPÁ (3)</span>
                         <span class="item-price">$9.99</span>
                     </div>
-                    <span class="item-description">Lettuce, tomato, queso freso, rice, beans and sour cream.</span>
+                    <span class="item-description menu-font">Lettuce, tomato, queso freso, rice, beans and sour cream.</span>
                 </div>
                 <div class="menu-item specialties">
                     <div class="item-header">
-                        <span class="item-name">CARNE ASADA</span>
+                        <span class="item-name items">CARNE ASADA</span>
                         <span class="item-price">$13.99</span>
                     </div>
-                    <span class="item-description">Served with rice, beans, pico de gallo and guacamole.</span>
+                    <span class="item-description menu-font">Served with rice, beans, pico de gallo and guacamole.</span>
                 </div>
                 <div class="menu-item specialties">
                     <div class="item-header">
-                        <span class="item-name">ASADO DE PUERCO</span>
+                        <span class="item-name items">ASADO DE PUERCO</span>
                         <span class="item-price">$13.99</span>
                     </div>
-                    <span class="item-description">Asado de puerco is a pork stew made with dried chiles - there's no chili powder here! Guajillo chiles add a very smoky flavor while the ancho chiles add a touch of smoky sweetness.</span>
-                        <span class="item-description">Served with rice and beans.</span>
+                    <span class="item-description menu-font">Asado de puerco is a pork stew made with dried chiles - there's no chili powder here! Guajillo chiles add a very smoky flavor while the ancho chiles add a touch of smoky sweetness.</span>
+                        <span class="item-description menu-font">Served with rice and beans.</span>
                     </div>
                 <div class="menu-item specialties">
                     <div class="item-header">
-                        <span class="item-name">LA BALANCE ENCHILADAS</span>
+                        <span class="item-name items">LA BALANCE ENCHILADAS</span>
                         <span class="item-price">$13.99</span>
                     </div>
-                    <span class="item-description">An enchilada is a dish consisting of a corn tortilla rolled around a filling and covered in a savory sauce.</span>
-                        <span class="item-description">Your choice of Fajita, Pastor or Chicken served in a gravy sauce with rice and beans.</span>
+                    <span class="item-description menu-font">An enchilada is a dish consisting of a corn tortilla rolled around a filling and covered in a savory sauce.</span>
+                        <span class="item-description menu-font">Your choice of Fajita, Pastor or Chicken served in a gravy sauce with rice and beans.</span>
                     </div>
                 <!-- More items here -->
             </div>
         </div>
 
         <div class="menu-section sides">
-            <h2 class="menu-h2">Sides</h2>
-            <h3 class="menu-subheading">(Individual servings)</h3>
+            <h2 class="menu-h2 title">Sides</h2>
+            <h3 class="menu-subheading text">(Individual servings)</h3>
             <div class="menu-items">
                 <div class="menu-item sides">
                     <div class="item-header">
-                        <span class="item-name">Mexican Rice</span>
+                        <span class="item-name items">Mexican Rice</span>
                         <span class="item-price">$3.99</span>
                     </div>
                 </div>
                 <div class="menu-item sides">
                     <div class="item-header">
-                        <span class="item-name">Refried Beans</span>
+                        <span class="item-name items">Refried Beans</span>
                         <span class="item-price">$3.99</span>
                     </div>
                 </div>
                 <div class="menu-item sides">
                     <div class="item-header">
-                        <span class="item-name">French Fries</span>
+                        <span class="item-name items">French Fries</span>
                         <span class="item-price">$4.99</span>
                     </div>
                 </div>
                 <div class="menu-item sides">
                     <div class="item-header">
-                        <span class="item-name">Truffle Fries</span>
+                        <span class="item-name items">Truffle Fries</span>
                         <span class="item-price">$6.99</span>
                     </div>
-                    <span class="item-description">with Pecorino cheese</span>
+                    <span class="item-description menu-font">with Pecorino cheese</span>
                 </div>
                 <!-- More items here -->
             </div>
         </div>
 
         <div class="menu-section drinks">
-            <h2 class="menu-h2">Drinks</h2>
+            <h2 class="menu-h2 title">Drinks</h2>
             <div class="menu-items">
                 <div class="menu-item drinks">
                     <div class="item-header">
-                        <span class="item-name">Fountain Drinks</span>
+                        <span class="item-name items">Fountain Drinks</span>
 
                         <span class="item-price">$1.75</span>
                     </div>
-                        <span class="item-description">Coke/Diet, Dr. Pepper, Sprite, Sunkist</span>
+                        <span class="item-description menu-font">Coke/Diet, Dr. Pepper, Sprite, Sunkist</span>
                 </div>
                 <div class="menu-item drinks">
                     <div class="item-header">
-                        <span class="item-name">Coffee</span>
+                        <span class="item-name items">Coffee</span>
 
                         <span class="item-price">$2.25</span>
                     </div>
-                        <span class="item-description">Coffee</span>
+                        <span class="item-description menu-font">Coffee</span>
                 </div>
                 <div class="menu-item drinks">
                     <div class="item-header">
-                        <span class="item-name">Iced</span>
+                        <span class="item-name items">Iced</span>
 
                         <span class="item-price">$8.99</span>
                     </div>
-                        <span class="item-description">Iced Coffee or Iced Tea</span>
+                        <span class="item-description menu-font">Iced Coffee or Iced Tea</span>
                 </div>
                 <div class="menu-item drinks">
                     <div class="item-header">
-                        <span class="item-name">Water</span>
+                        <span class="item-name items">Water</span>
                         <span class="item-price">$2.00</span>
                     </div>
-                    <span class="item-description">Bottled Water</span>
+                    <span class="item-description menu-font">Bottled Water</span>
                 </div>
                 <div class="menu-item drinks">
                     <div class="item-header">
-                        <span class="item-name">Beer</span>
+                        <span class="item-name items">Beer</span>
                         <span class="item-price">$4.00</span>
                     </div>
-                    <span class="item-description">(Bud Lite or Miller Lite)</span>
+                    <span class="item-description menu-font">(Bud Lite or Miller Lite)</span>
                 </div>
                 <div class="menu-item drinks">
                     <div class="item-header">
-                        <span class="item-name">Beer</span>
+                        <span class="item-name items">Beer</span>
                         <span class="item-price">$5.00</span>
                     </div>
-                    <span class="item-description">(Modelo Especial, Negra, Corona, DosX)</span>
+                    <span class="item-description menu-font">(Modelo Especial, Negra, Corona, DosX)</span>
                 </div>
                 <div class="menu-item drinks">
                     <div class="item-header">
-                        <span class="item-name">Micheladas</span>
+                        <span class="item-name items">Micheladas</span>
                         <span class="item-price">$5.00</span>
                     </div>
-                    <span class="item-description">(Bud Lite or Miller Lite)</span>
+                    <span class="item-description menu-font">(Bud Lite or Miller Lite)</span>
                 </div>
                 <div class="menu-item drinks">
                     <div class="item-header">
-                        <span class="item-name">Micheladas</span>
+                        <span class="item-name items">Micheladas</span>
                         <span class="item-price">$6.00</span>
                     </div>
-                    <span class="item-description"> (Modelo, Corona, Dos X)</span>
+                    <span class="item-description menu-font"> (Modelo, Corona, Dos X)</span>
                 </div>
                 <!-- More items here -->
             </div>
             <div class="bottom-heading">
-                <h3 class="bottom-subheading">Wine TO-GO -25% off (ask for our wine list)</h3>
+                <h3 class="bottom-subheading title">Wine TO-GO -25% off (ask for our wine list)</h3>
             </div>
         </div>
 
 
 
         
-        <!-- <h3 class="menu-subheading"></h3> -->
+        <!-- <h3 class="menu-subheading text"></h3> -->
 
 
 
         <!-- <div class="menu-section entrees">
-            <h2 class="menu-h2">Entrées</h2>
+            <h2 class="menu-h2 title">Entrées</h2>
             <div class="menu-items">
                 <div class="menu-item entrees">
                     <div class="item-header">
-                        <span class="item-name">Gai Pad Khing</span>
+                        <span class="item-name items">Gai Pad Khing</span>
                         <span class="item-price">$7.95</span>
                     </div>
-                    <span class="item-description">Sauteed sliced chicken with mushrooms, peppers, cabbage, carrots and onions in a fresh ginger sauce</span>
+                    <span class="item-description menu-font">Sauteed sliced chicken with mushrooms, peppers, cabbage, carrots and onions in a fresh ginger sauce</span>
                 </div>
                 <div class="menu-item entrees">
                     <div class="item-header">
-                        <span class="item-name">Nuur Kra Prow</span>
+                        <span class="item-name items">Nuur Kra Prow</span>
                         <span class="item-price">$8.50</span>
                     </div>
-                    <span class="item-description">Sauteed sliced beef with peppers, cabbage, carrots and onions in a chili basil sauce</span>
+                    <span class="item-description menu-font">Sauteed sliced beef with peppers, cabbage, carrots and onions in a chili basil sauce</span>
                 </div>
                 <div class="menu-item entrees">
                     <div class="item-header">
-                        <span class="item-name">Gai Pad Khing</span>
+                        <span class="item-name items">Gai Pad Khing</span>
                         <span class="item-price">$7.95</span>
                     </div>
-                    <span class="item-description">Sauteed sliced chicken with mushrooms, peppers, cabbage, carrots and onions in a fresh ginger sauce</span>
+                    <span class="item-description menu-font">Sauteed sliced chicken with mushrooms, peppers, cabbage, carrots and onions in a fresh ginger sauce</span>
                 </div>
                 <div class="menu-item entrees">
                     <div class="item-header">
-                        <span class="item-name">Nuur Kra Prow</span>
+                        <span class="item-name items">Nuur Kra Prow</span>
                         <span class="item-price">$8.50</span>
                     </div>
-                    <span class="item-description">Sauteed sliced beef with peppers, cabbage, carrots and onions in a chili basil sauce</span>
+                    <span class="item-description menu-font">Sauteed sliced beef with peppers, cabbage, carrots and onions in a chili basil sauce</span>
                 </div>
                 <!-- More items here
             </div>
         </div>
 
         <div class="menu-section desserts">
-            <h2 class="menu-h2">Desserts</h2>
+            <h2 class="menu-h2 title">Desserts</h2>
             <div class="menu-items">
                 <div class="menu-item desserts">
                     <div class="item-header">
-                        <span class="item-name">Khao Neow Ma Muang</span>
+                        <span class="item-name items">Khao Neow Ma Muang</span>
                         <span class="item-price">$5.95</span>
                     </div>
-                    <span class="item-description">Sliced mango with sticky rice and coconut milk</span>
+                    <span class="item-description menu-font">Sliced mango with sticky rice and coconut milk</span>
                 </div>
                 <div class="menu-item desserts">
                     <div class="item-header">
-                        <span class="item-name">Khao Tom Mud</span>
+                        <span class="item-name items">Khao Tom Mud</span>
                         <span class="item-price">$6.50</span>
                     </div>
-                    <span class="item-description">Steamed sticky rice in a banana leaf with baby banana</span>
+                    <span class="item-description menu-font">Steamed sticky rice in a banana leaf with baby banana</span>
                 </div>
                 <div class="menu-item desserts">
                     <div class="item-header">
-                        <span class="item-name">Khao Neow Ma Muang</span>
+                        <span class="item-name items">Khao Neow Ma Muang</span>
                         <span class="item-price">$5.95</span>
                     </div>
-                    <span class="item-description">Sliced mango with sticky rice and coconut milk</span>
+                    <span class="item-description menu-font">Sliced mango with sticky rice and coconut milk</span>
                 </div>
                 <div class="menu-item desserts">
                     <div class="item-header">
-                        <span class="item-name">Khao Tom Mud</span>
+                        <span class="item-name items">Khao Tom Mud</span>
                         <span class="item-price">$6.50</span>
                     </div>
-                    <span class="item-description">Steamed sticky rice in a banana leaf with baby banana</span>
+                    <span class="item-description menu-font">Steamed sticky rice in a banana leaf with baby banana</span>
                 </div>
                 <!-- More items here 
             </div>

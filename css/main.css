@@ -8,8 +8,6 @@ body {
   text-align: center;
   width: 90%; /* Set the width to ensure it fits on the screen */
   margin: 0 auto; /* Center the heading */
-  overflow: hidden; /* Hide overflow */
-  word-wrap: break-word; /* Allow wrapping */
   line-height: 1.0; /* Increase line height for more space between lines */
 }
 
@@ -625,6 +623,7 @@ body {
   padding: 20px;
   z-index: 2; /* Ensures text is above the blurred background */
   text-align: center;
+  font-size: 1.5em;
 }
 
 .container.container1::before {
@@ -803,8 +802,8 @@ body {
 }
 
 .header-image p {
-  font-size: 1.5em;
-  margin-top: 10px;
+  font-size: 2em; 
+
 }
 
 .header-image img {
@@ -933,8 +932,8 @@ body {
 }
 
 .header-img p {
-  font-size: 1.5em;
-  margin-top: 10px;
+  font-size: 2em;
+  margin-top: 20px;
 }
 
 /* ------------------------------------------------------------------------
@@ -1130,12 +1129,10 @@ body {
 }
 
 .news-item h3 {
-  font-size: 24px;
   margin: 20px 0 10px;
 }
 
 .news-item p {
-  font-size: 16px;
   color: #666;
 }
 
@@ -1230,7 +1227,7 @@ body {
 }
 
 .item-name {
-  font-size: 1.2em;
+  font-size: 1.5em;
   font-weight: 600;
 }
 
@@ -1387,6 +1384,9 @@ body {
 
 .article-footer p {
   margin-bottom: 5px;
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 300;
+  font-style: italic;  ;
 }
 
 
@@ -1628,4 +1628,59 @@ input:nth-of-type(10) {
 }
 input:nth-of-type(10):checked ~ main#carousel {
   --position: 10;
+}
+
+/* ------------------------------------------------------------------------
+---------------------------------------------------------------------
+------------------------------------------------------------------- */
+
+.overlay{
+  margin: 10px;
+}
+/* ------------------------------------------------------------------------
+---------------------------------------------------------------------
+------------------------------------------------------------------- */
+
+.header-font {
+  font-family: "Playwrite NG Modern", cursive;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.subheader-font {
+  font-family: "Caveat", cursive;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  
+}
+
+.title {
+  font-family: "Caveat", cursive;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 2em;
+}
+
+.items {
+  font-family: "Caveat", cursive;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.text {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 300;
+  font-style: italic;  
+  font-size: 24px;
+}
+
+.menu-font {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 600;
+  font-style: italic;
+  font-size: 24px
 }
