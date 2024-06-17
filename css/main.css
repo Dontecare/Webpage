@@ -1642,14 +1642,14 @@ input:nth-of-type(10):checked ~ main#carousel {
 ------------------------------------------------------------------- */
 
 .header-font {
-  font-family: "Playwrite NG Modern", serif;
+  font-family: "Playwrite NG Modern", cursive;
   font-optical-sizing: auto;
   font-weight: 300;
   font-style: normal;
 }
 
 .subheader-font {
-  font-family: "Caveat", serif;
+  font-family: "Caveat", cursive;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
@@ -1657,7 +1657,7 @@ input:nth-of-type(10):checked ~ main#carousel {
 }
 
 .title {
-  font-family: "Caveat", serif;
+  font-family: "Caveat", cursive;
   font-optical-sizing: auto;
   font-weight: 600;
   font-style: normal;
@@ -1665,7 +1665,7 @@ input:nth-of-type(10):checked ~ main#carousel {
 }
 
 .items {
-  font-family: "Caveat", serif;
+  font-family: "Caveat", cursive;
   font-optical-sizing: auto;
   font-weight: 700;
   font-style: normal;
