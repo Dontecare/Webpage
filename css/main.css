@@ -1384,7 +1384,7 @@ body {
 
 .article-footer p {
   margin-bottom: 5px;
-  font-family: "Cormorant Garamond", serif;
+  /* font-family: "Cormorant Garamond", serif; */
   font-weight: 300;
   font-style: italic;  ;
 }
@@ -1641,7 +1641,7 @@ input:nth-of-type(10):checked ~ main#carousel {
 ---------------------------------------------------------------------
 ------------------------------------------------------------------- */
 
-.header-font {
+/* .header-font {
   font-family: "Playwrite NG Modern", cursive;
   font-optical-sizing: auto;
   font-weight: 300;
@@ -1690,4 +1690,4 @@ input:nth-of-type(10):checked ~ main#carousel {
   font-weight: 600;
   font-style: normal;
   font-size: 24px
-}
+} */
