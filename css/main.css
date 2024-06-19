@@ -58,8 +58,6 @@ body {
   transform: translateY(-100%); /* Ensure the navbar is hidden */
 }
 
-
-
 .nav-left {
   display: flex;
   align-items: center;
@@ -70,9 +68,17 @@ body {
   margin-right: 10px;
 }
 
+
 .nav-left .business-name {
   font-size: 24px;
   color: white;
+  display: none; /* Hide by default */
+}
+
+@media (min-width: 768px) {
+  .nav-left .business-name {
+    display: inline; /* Show on larger screens */
+  }
 }
 
 .nav-right {
@@ -82,10 +88,44 @@ body {
   flex-wrap: nowrap;
 }
 
-.nav-right a {
+/* Common styles for navbar links */
+.nav-right a,
+.mobile-menu a {
+  position: relative;
   color: white;
   text-decoration: none;
+  overflow: hidden;
 }
+
+/* Underline animation */
+.nav-right a::after,
+.mobile-menu a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 100%;
+  background: #c63337;
+  transform: translateX(-100%);
+  transition: transform .5s ease;
+}
+
+/* Hover and focus states */
+.nav-right a:hover::after,
+.nav-right a:focus::after,
+.mobile-menu a:hover::after,
+.mobile-menu a:focus::after {
+  transform: translateX(0);
+}
+
+/* Style for active links */
+.nav-right a.active,
+.mobile-menu a.active {
+  color: #c63337; /* Active link color */
+}
+
+
 
 .nav-mobile {
   display: none;
@@ -97,7 +137,7 @@ body {
   cursor: pointer;
   background: none;
   border: none;
-  color: white;
+  color: #c63337;
 }
 
 @keyframes fadeIn {
@@ -1637,6 +1677,12 @@ input:nth-of-type(10):checked ~ main#carousel {
 .overlay{
   margin: 10px;
 }
+
+ol {
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
 /* ------------------------------------------------------------------------
 ---------------------------------------------------------------------
 ------------------------------------------------------------------- */
