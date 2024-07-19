@@ -25,6 +25,8 @@
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/main.css">
 
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+
   <meta name="theme-color" content="#fafafa">
 </head>
 
@@ -72,8 +74,8 @@
           <p>Nullam quis risus eget urna mollis ornare vel eu leo. Curabitur blandit tempus porttitor. Curabitur blandit tempus porttitor. </p>
         </div>
 
-        <div class="button-container">
-          <button class="button">Click Me</button>
+        <div class="to-menu-container">
+          <a href="reservations.html" class="to-menu-link">Make A Reservation &#x2192;</a>
         </div>
 
       </div>
@@ -115,6 +117,9 @@
   </div>
 </div>
 
+<div class="to-menu-container">
+  <a href="menu.html" class="to-menu-link">To Menu &#x2192;</a>
+</div>
     
     <div class="container container2">
         <div class="text-overlay">
@@ -143,10 +148,16 @@
       </div>
     </div>
 
-    <div class="img-container">
-      <img class="image" id="myImg" src="./img/food.jpg" alt="Food image">
-  </div>
-  
+    <div class="to-menu-container">
+      <a href="news.html" class="to-menu-link">To News &#x2192;</a>
+    </div>
+
+    <section class="location-hours-section">
+      <h2 class="title">Location</h2>
+      <div id="map-container" class="map-container">
+      <div id="map" class="map">
+      </div>
+    </section>
 
     <!-- Footer -->
     <div class="footer">
@@ -179,6 +190,7 @@
   <div id="caption"></div>
 </div>
 
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 <script src="js/main.js"></script>
 
 
