@@ -98,8 +98,7 @@ body {
 }
 
 /* Underline animation */
-.nav-right a::after,
-.mobile-menu a::after {
+.nav-right a::after {
   content: '';
   position: absolute;
   left: 0;
@@ -113,9 +112,7 @@ body {
 
 /* Hover and focus states */
 .nav-right a:hover::after,
-.nav-right a:focus::after,
-.mobile-menu a:hover::after,
-.mobile-menu a:focus::after {
+.nav-right a:focus::after{
   transform: translateX(0);
 }
 
@@ -450,7 +447,7 @@ body {
   max-width: 100%;
   margin: 0 auto;
   padding: 80px 8.474576271%; 
-  background:white; /* Apply a gradient background */
+  /* background:white; */
 }
 
 .box {
@@ -458,7 +455,7 @@ body {
   justify-content: center;
   align-items: center;
   padding: 2rem; /* Add some padding around the box */
-  background-color: white; /* Ensure background color is white */
+  /* background-color: white;  */
 }
 
 .section-container {
@@ -842,8 +839,8 @@ body {
 }
 
 .header-image p {
-  font-size: 2em; 
-
+  font-size: 1.5em;
+  margin-top: 10px;
 }
 
 .header-image img {
@@ -972,8 +969,8 @@ body {
 }
 
 .header-img p {
-  font-size: 2em;
-  margin-top: 20px;
+  font-size: 1.5em;
+  margin-top: 10px;
 }
 
 /* ------------------------------------------------------------------------
@@ -1210,6 +1207,10 @@ body {
   margin: 0;
   padding: 0;
   background-color: #f8f8f8;
+  background-image: url('../img/web\ pattern.png');
+  background-repeat: repeat;
+  background-size: auto;
+  background-position: center;
   color: #333;
 }
 
@@ -1687,6 +1688,16 @@ ol {
 ---------------------------------------------------------------------
 ------------------------------------------------------------------- */
 
+.lang-content {
+  display: none;
+}
+.lang-content.active {
+  display: block;
+}
+
+/* ------------------------------------------------------------------------
+---------------------------------------------------------------------
+------------------------------------------------------------------- */
 /* .header-font {
   font-family: "Playwrite NG Modern", cursive;
   font-optical-sizing: auto;

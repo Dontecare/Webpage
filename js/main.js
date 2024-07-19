@@ -444,7 +444,47 @@ function filterMenu() {
 // -----------------------------------------------------------------------------
 // -----------------------------------------------------------------------------
 
+document.addEventListener('DOMContentLoaded', function() {
+  const toggleButton = document.getElementById('toggle-lang');
+  const englishContent = document.querySelector('section[lang="en"]');
+  const spanishContent = document.querySelector('section[lang="es"]');
+  const htmlElement = document.documentElement;
 
+  function setLanguage(lang) {
+      htmlElement.lang = lang;
+      if (lang === 'en') {
+          englishContent.classList.add('active');
+          spanishContent.classList.remove('active');
+          toggleButton.textContent = 'Switch to Spanish';
+      } else {
+          englishContent.classList.remove('active');
+          spanishContent.classList.add('active');
+          toggleButton.textContent = 'Switch to English';
+      }
+      localStorage.setItem('preferredLanguage', lang);
+  }
+
+  function toggleLanguage() {
+      const currentLang = htmlElement.lang;
+      const newLang = currentLang === 'en' ? 'es' : 'en';
+      setLanguage(newLang);
+  }
+
+  // Check for stored language preference
+  const storedLang = localStorage.getItem('preferredLanguage');
+  const browserLang = navigator.language || navigator.userLanguage;
+
+  if (storedLang) {
+      setLanguage(storedLang);
+  } else if (browserLang.startsWith('es')) {
+      setLanguage('es');
+  } else {
+      setLanguage('en');
+  }
+
+  // Add event listener
+  toggleButton.addEventListener('click', toggleLanguage);
+});
 
 
 // -----------------------------------------------------------------------------

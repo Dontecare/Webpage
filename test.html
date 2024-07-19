@@ -1,67 +1,72 @@
 <!doctype html>
 <html class="no-js" lang="en">
-
+    
 <head>
   <meta charset="utf-8">
   <title>About</title>
   <meta name="description" content="This site will serve as the hub for many sub responsive layouts">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <meta property="og:title" content="">
-  <meta property="og:type" content="">
-  <meta property="og:url" content="">
-  <meta property="og:image" content="">
-
-  <!-- Place favicon.ico in the root directory -->
-
-  <link rel="manifest" href="manifest.json">
-
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/main.css">
-
   <meta name="theme-color" content="#fafafa">
 </head>
 
 <body>
-    <input type="radio" name="position" id="pos1" />
-    <input type="radio" name="position" id="pos2" />
-    <input type="radio" name="position" id="pos3" checked />
-    <input type="radio" name="position" id="pos4" />
-    <input type="radio" name="position" id="pos5" />
-    <main id="carousel">
-        <div class="item">
-            <img src="./img/file.jpg" alt="Image 1">
-            <h3 class="name">Sally Sharpe</h3>
-            <p class="occupation">Marketing Admin</p>
-            <p class="testimonial">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, suscipit?</p>
-        </div>
-        <div class="item">
-            <img src="./img/file (1).jpg" alt="Image 2">
-            <!-- <h3 class="name">Michael John</h3>
-            <p class="occupation">Cybersecurity Engineer</p>
-            <p class="testimonial">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, dolore.</p> -->
-        </div>
-        <div class="item">
-            <img src="./img/file (2).jpg" alt="Image 3">
-            <!-- <h3 class="name">Mikayla Eddie</h3>
-            <p class="occupation">Software Engineer</p>
-            <p class="testimonial">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequatur, temporibus?</p> -->
-        </div>
-        <div class="item">
-            <img src="./img/file (3).jpg" alt="Image 4">
-            <!-- <h3 class="name">Eve Smith</h3>
-            <p class="occupation">UI/UX Designer</p>
-            <p class="testimonial">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod, beatae?</p> -->
-        </div>
-        <div class="item">
-            <img src="./img/food.jpg" alt="Image 5">
-            <!-- <h3 class="name">Luke Maxwell</h3>
-            <p class="occupation">System Architect</p>
-            <p class="testimonial">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse, tempore.</p> -->
-        </div>
-    </main>
 
-    <script src="js/main.js"></script>
-    
+  <div class="carousel-body">    
+    <div class="radio-container"></div>
+      <!-- Radio buttons dynamically generated here -->
+      <input type="radio" name="position" checked>
+      <input type="radio" name="position">
+      <input type="radio" name="position">
+      <input type="radio" name="position">
+      <input type="radio" name="position">
+      <input type="radio" name="position">
+      <input type="radio" name="position">
+      <input type="radio" name="position">
+      <input type="radio" name="position">
+      <input type="radio" name="position">
+    <main id="carousel">
+      <div class="item">
+        <img src="./img/file.jpg">
+      </div>
+      <div class="item">
+        <img src="./img/file (1).jpg">
+      </div>
+      <div class="item">
+        <img src="./img/file (2).jpg">
+      </div>
+      <div class="item">
+        <img src="./img/file (3).jpg">
+      </div>
+      <div class="item">
+        <img src="./img/food.jpg">
+      </div>
+      <div class="item">
+        <img src="./img/file.jpg">
+      </div>
+      <div class="item">
+        <img src="./img/file (1).jpg">
+      </div>
+      <div class="item">
+        <img src="./img/file (2).jpg">
+      </div>
+      <div class="item">
+        <img src="./img/file (3).jpg">
+      </div>
+      <div class="item">
+        <img src="./img/food.jpg">
+      </div>
+    </main>
+    <div class="carousel-arrows">
+      <button class="prev-arrow">&lt;</button>
+      <button class="next-arrow">&gt;</button>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+
 </body>
+
 </html>
+
