@@ -4,7 +4,7 @@
     "description": "Website for La Balance",
     "start_url": "https://dontecare.github.io/Webpage/",
     "display": "standalone",
-    "background_color": "#646C6F",
+    "background_color": "#ffffff",
     "theme_color": "#000000",
     "icons": [
       {

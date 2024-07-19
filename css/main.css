@@ -71,7 +71,7 @@ body {
 
 .nav-left .business-name {
   font-size: 24px;
-  color: white;
+  color: #FFEFE0;
   display: none; /* Hide by default */
 }
 
@@ -92,7 +92,7 @@ body {
 .nav-right a,
 .mobile-menu a {
   position: relative;
-  color: white;
+  color: #FFEFE0;
   text-decoration: none;
   overflow: hidden;
 }
@@ -172,12 +172,12 @@ body {
   position: absolute;
   top: 20px;
   right: 20px;
-  color: white;
+  color: #FFEFE0;
 }
 
 .mobile-menu a {
   padding: 20px 0;
-  color: white;
+  color: #FFEFE0;
   text-decoration: none;
   font-size: 40px; /* Increase font size */
 }
@@ -859,7 +859,7 @@ body {
   align-items: center;
   height: 60vh; /* 60% of the viewport height */
   padding: 20px; /* Adjust padding as needed */
-  color: white;
+  color: #FFEFE0;
   text-align: center;
   position: relative; /* Add relative positioning */
 }
@@ -884,7 +884,7 @@ body {
   align-items: center;
   height: 60vh; /* 60% of the viewport height */
   padding: 20px; /* Adjust padding as needed */
-  color: white;
+  color: #FFEFE0;
   text-align: center;
   position: relative; /* Add relative positioning */
 }
@@ -909,7 +909,7 @@ body {
   align-items: center;
   height: 60vh; /* 60% of the viewport height */
   padding: 20px; /* Adjust padding as needed */
-  color: white;
+  color: #FFEFE0;
   text-align: center;
   position: relative; /* Add relative positioning */
 }
@@ -934,7 +934,7 @@ body {
   align-items: center;
   height: 60vh; /* 60% of the viewport height */
   padding: 20px; /* Adjust padding as needed */
-  color: white;
+  color: #FFEFE0;
   text-align: center;
   position: relative; /* Add relative positioning */
 }
@@ -961,7 +961,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh; /* Full viewport height */
-  color: white; /* Adjust text color for better contrast */
+  color: #FFEFE0; /* Adjust text color for better contrast */
   text-align: center;
 }
 
