@@ -661,6 +661,8 @@ body {
   z-index: 2; /* Ensures text is above the blurred background */
   text-align: center;
   font-size: 1.5em;
+  padding: 20px; /* Add padding around the content */
+  box-sizing: border-box; /* Include padding in element's total width and height */
 }
 
 .container.container1::before {
@@ -1675,7 +1677,10 @@ input:nth-of-type(10):checked ~ main#carousel {
 ---------------------------------------------------------------------
 ------------------------------------------------------------------- */
 
-
+.overlay{
+  margin: 10px;
+  line-height: 3rem;
+}
 
 ol {
   margin-top: 0;
